@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Item
+  - PlayerHurtBox
+  - EnemyHurtBox
+  - PlayerAttackBox
+  - EnemyAttackBox
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Ground
+  - Water
+  - UI
+  - Player
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: "\u6700\u5927\u80CC\u666F"
+    uniqueID: 3894748481
+    locked: 0
+  - name: "\u6B21\u8981\u80CC\u666F"
+    uniqueID: 3829842101
+    locked: 0
+  - name: "\u9053\u5177"
+    uniqueID: 20067473
+    locked: 0
+  - name: "\u73A9\u5BB6"
+    uniqueID: 1175027731
+    locked: 0
+  - name: "\u7279\u6548"
+    uniqueID: 1539912137
+    locked: 0
+  - name: "\u74E6\u7247"
+    uniqueID: 1314446633
+    locked: 0
+  - name: "\u524D\u666F"
+    uniqueID: 160998937
+    locked: 0
+  - name: UI
+    uniqueID: 362988641
+    locked: 0

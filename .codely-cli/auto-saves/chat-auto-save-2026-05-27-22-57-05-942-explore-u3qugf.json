@@ -1,0 +1,1012 @@
+{
+  "tag": "auto-save-2026-05-27-22-57-05-942-explore-u3qugf",
+  "timestamp": "2026-05-27T14:57:05.942Z",
+  "type": "automatic",
+  "clientHistory": [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "This is the Codely CLI. We are setting up the context for our chat.\nToday's date is 2026年5月27日星期三.\nMy operating system is: win32\nI'm currently working in the directory: F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\nHere is the folder structure of the current working directories:\n\nShowing up to 20 items (files + folders). Folders or files indicated with ... contain more items not shown, were ignored, or the display limit (20 items) was reached.\n\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\\n├───.codelyignore\n├───.com-unity-codely.json\n├───Assembly-CSharp.csproj\n├───Chipped Jade, the King Itself.sln\n├───.codely-cli\\\n│   ├───settings.json\n│   └───extensions\\\n├───.vscode\\\n│   ├───extensions.json\n│   ├───launch.json\n│   └───settings.json\n├───Assets\\\n│   ├───Art.meta\n│   ├───Perfabs.meta\n│   ├───...\n│   └───...\n├───Library\\\n├───Logs\\\n├───Packages\\\n├───ProjectSettings\\\n├───Temp\\\n└───UserSettings\\---\n\n--- Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---\n## Codely Added Memories\n- 用户偏好使用中文交流，请始终用中文回复。\n--- End of Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---<core_static_ref hash=\"98349db4a75d87f4712f03733f46f78baf06fd7a8640b702db980df272f0f7a8\" />"
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "text": "Got it. Thanks for the context!"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "Task MUST complete:\nExplore this Unity project to find:\n1. Player-related scripts and prefabs (look in Assets/Scripts, Assets/Perfabs, etc.)\n2. Any sprite/texture assets related to the player character (in Assets/Art or similar)\n3. Any existing quality settings or texture import settings\n4. Check if there are .meta files for sprite textures and read their filterMode settings\n\nFocus on finding:\n- Player movement scripts\n- Player sprite texture .meta files (look for filterMode, textureType settings)\n- Any Pixel Perfect Camera or related setup\n- Quality settings (ProjectSettings/QualitySettings.asset)\n\nThoroughness: medium"
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "text": "<think>Let me explore this Unity project systematically to find the requested information. I'll start with multiple parallel searches to be efficient.</think>"
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "functionCall": {
+            "id": "call_00_3ONDpViXMIQfCOWwSlhE9186",
+            "name": "list_directory",
+            "args": {
+              "path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "functionResponse": {
+            "id": "call_00_3ONDpViXMIQfCOWwSlhE9186",
+            "name": "list_directory",
+            "response": {
+              "output": "Directory listing for F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets:\n[DIR] Art\n[DIR] Perfabs\n[DIR] Scenes\n[DIR] Scripts\n[DIR] TextMesh Pro\n[DIR] Tile\nArt.meta\nPerfabs.meta\nScenes.meta\nScripts.meta\nTextMesh Pro.meta\nTile.meta"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "functionCall": {
+            "id": "call_01_9KK6O1jKP3jfZvy8B2IB8801",
+            "name": "glob",
+            "args": {
+              "pattern": "Assets/**/*.cs",
+              "path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "functionResponse": {
+            "id": "call_01_9KK6O1jKP3jfZvy8B2IB8801",
+            "name": "glob",
+            "response": {
+              "output": "Found 5 file(s) matching \"Assets/**/*.cs\" within F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself, sorted by modification time (newest first):\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Other\\ButtonHoverEffect.cs\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Other\\CameraController.cs\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Player\\PlayerController.cs\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Player\\PlayerStat.cs\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Player\\PlayerStateMachine.cs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "functionCall": {
+            "id": "call_02_Qiq1YdE1LFTHbmLG3d1v6404",
+            "name": "glob",
+            "args": {
+              "pattern": "Assets/**/*.prefab",
+              "path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "functionResponse": {
+            "id": "call_02_Qiq1YdE1LFTHbmLG3d1v6404",
+            "name": "glob",
+            "response": {
+              "output": "Found 4 file(s) matching \"Assets/**/*.prefab\" within F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself, sorted by modification time (newest first):\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\Player.prefab\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\栅栏.prefab\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\Shop.prefab\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Tile\\出生地\\出生地.prefab"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "functionCall": {
+            "id": "call_03_zRzRdZtnKYny1Jtf9q3Q6502",
+            "name": "glob",
+            "args": {
+              "pattern": "Assets/**/*.png.meta",
+              "path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "functionResponse": {
+            "id": "call_03_zRzRdZtnKYny1Jtf9q3Q6502",
+            "name": "glob",
+            "response": {
+              "output": "Found 96 file(s) matching \"Assets/**/*.png.meta\" within F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself, sorted by modification time (newest first):\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests\\Chests_Snow.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests\\Chests.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_1\\BG_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_2\\BG_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_3\\BG_3_alt.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_3\\BG_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Free.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Mockup.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Terrain_and_Props.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Terrain-and-Props-OLD.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0000_9.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0001_8.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0002_7.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0003_6.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0004_Lights.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0005_5.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0006_4.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0007_Lights.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0008_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0009_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0010_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0011_0.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\Preview\\Background.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Forest.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Plataformer Painted Style.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Runner.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Snowy Forest.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background\\background_layer_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background\\background_layer_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background\\background_layer_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\character\\char_blue.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\fence_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\fence_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\grass_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\grass_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\grass_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\lamp.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\rock_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\rock_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\rock_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop_anim 1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop_anim 2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop_anim.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\sign.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\oak_woods_tileset.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background4a.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background4b.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\mainlev_build.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\props1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\props2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland_Mountains_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland_Mountains_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland_Sky.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland-Files.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\OtherPic\\主菜单.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\attack_from_air.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Attacks.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Climb.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\crouch_attacks.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\crouch_idle.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Death.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Hanging.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Health.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Hurt.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Idle.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Jump.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Pray.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Roll.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Run.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Slide.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Preview.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\ATTACK 1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\HURT.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\IDLE.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\RUN.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Effect Block-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Effect HP MP-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Effect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorManNoEffect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorWoman-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorWomanNoEffect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\WarriorMan-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorMan-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorManNoEffect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorWoman-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorWomanNoEffect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\按钮.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\ChatGPT Image 2026年5月7日 22_41_53.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\freeversion.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\freeversion.png\\freeversion.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\title.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\TextMesh Pro\\Sprites\\EmojiOne.png.meta"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "functionCall": {
+            "id": "call_04_HLB8hvOGIHOW1ZnKQWTr0336",
+            "name": "read_file",
+            "args": {
+              "absolute_path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\ProjectSettings\\QualitySettings.asset"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "functionResponse": {
+            "id": "call_04_HLB8hvOGIHOW1ZnKQWTr0336",
+            "name": "read_file",
+            "response": {
+              "output": "%YAML 1.1\n%TAG !u! tag:yousandi.cn,2023:\n--- !u!47 &1\nQualitySettings:\n  m_ObjectHideFlags: 0\n  serializedVersion: 5\n  m_CurrentQuality: 5\n  m_QualitySettings:\n  - serializedVersion: 2\n    name: Very Low\n    pixelLightCount: 0\n    shadows: 0\n    shadowResolution: 0\n    shadowProjection: 1\n    shadowCascades: 1\n    shadowDistance: 15\n    shadowNearPlaneOffset: 3\n    shadowCascade2Split: 0.33333334\n    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}\n    shadowmaskMode: 0\n    skinWeights: 1\n    textureQuality: 1\n    anisotropicTextures: 0\n    antiAliasing: 0\n    softParticles: 0\n    softVegetation: 0\n    realtimeReflectionProbes: 0\n    billboardsFaceCameraPosition: 0\n    vSyncCount: 0\n    lodBias: 0.3\n    maximumLODLevel: 0\n    streamingMipmapsActive: 0\n    streamingMipmapsAddAllCameras: 1\n    streamingMipmapsMemoryBudget: 512\n    streamingMipmapsRenderersPerFrame: 512\n    streamingMipmapsMaxLevelReduction: 2\n    streamingMipmapsMaxFileIORequests: 1024\n    particleRaycastBudget: 4\n    asyncUploadTimeSlice: 2\n    asyncUploadBufferSize: 16\n    asyncUploadPersistentBuffer: 1\n    resolutionScalingFixedDPIFactor: 1\n    customRenderPipeline: {fileID: 0}\n    excludedTargetPlatforms: []\n  - serializedVersion: 2\n    name: Low\n    pixelLightCount: 0\n    shadows: 0\n    shadowResolution: 0\n    shadowProjection: 1\n    shadowCascades: 1\n    shadowDistance: 20\n    shadowNearPlaneOffset: 3\n    shadowCascade2Split: 0.33333334\n    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}\n    shadowmaskMode: 0\n    skinWeights: 2\n    textureQuality: 0\n    anisotropicTextures: 0\n    antiAliasing: 0\n    softParticles: 0\n    softVegetation: 0\n    realtimeReflectionProbes: 0\n    billboardsFaceCameraPosition: 0\n    vSyncCount: 0\n    lodBias: 0.4\n    maximumLODLevel: 0\n    streamingMipmapsActive: 0\n    streamingMipmapsAddAllCameras: 1\n    streamingMipmapsMemoryBudget: 512\n    streamingMipmapsRenderersPerFrame: 512\n    streamingMipmapsMaxLevelReduction: 2\n    streamingMipmapsMaxFileIORequests: 1024\n    particleRaycastBudget: 16\n    asyncUploadTimeSlice: 2\n    asyncUploadBufferSize: 16\n    asyncUploadPersistentBuffer: 1\n    resolutionScalingFixedDPIFactor: 1\n    customRenderPipeline: {fileID: 0}\n    excludedTargetPlatforms: []\n  - serializedVersion: 2\n    name: Medium\n    pixelLightCount: 1\n    shadows: 1\n    shadowResolution: 0\n    shadowProjection: 1\n    shadowCascades: 1\n    shadowDistance: 20\n    shadowNearPlaneOffset: 3\n    shadowCascade2Split: 0.33333334\n    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}\n    shadowmaskMode: 0\n    skinWeights: 2\n    textureQuality: 0\n    anisotropicTextures: 1\n    antiAliasing: 0\n    softParticles: 0\n    softVegetation: 0\n    realtimeReflectionProbes: 0\n    billboardsFaceCameraPosition: 0\n    vSyncCount: 1\n    lodBias: 0.7\n    maximumLODLevel: 0\n    streamingMipmapsActive: 0\n    streamingMipmapsAddAllCameras: 1\n    streamingMipmapsMemoryBudget: 512\n    streamingMipmapsRenderersPerFrame: 512\n    streamingMipmapsMaxLevelReduction: 2\n    streamingMipmapsMaxFileIORequests: 1024\n    particleRaycastBudget: 64\n    asyncUploadTimeSlice: 2\n    asyncUploadBufferSize: 16\n    asyncUploadPersistentBuffer: 1\n    resolutionScalingFixedDPIFactor: 1\n    customRenderPipeline: {fileID: 0}\n    excludedTargetPlatforms: []\n  - serializedVersion: 2\n    name: High\n    pixelLightCount: 2\n    shadows: 2\n    shadowResolution: 1\n    shadowProjection: 1\n    shadowCascades: 2\n    shadowDistance: 40\n    shadowNearPlaneOffset: 3\n    shadowCascade2Split: 0.33333334\n    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}\n    shadowmaskMode: 1\n    skinWeights: 2\n    textureQuality: 0\n    anisotropicTextures: 1\n    antiAliasing: 0\n    softParticles: 0\n    softVegetation: 1\n    realtimeReflectionProbes: 1\n    billboardsFaceCameraPosition: 1\n    vSyncCount: 1\n    lodBias: 1\n    maximumLODLevel: 0\n    streamingMipmapsActive: 0\n    streamingMipmapsAddAllCameras: 1\n    streamingMipmapsMemoryBudget: 512\n    streamingMipmapsRenderersPerFrame: 512\n    streamingMipmapsMaxLevelReduction: 2\n    streamingMipmapsMaxFileIORequests: 1024\n    particleRaycastBudget: 256\n    asyncUploadTimeSlice: 2\n    asyncUploadBufferSize: 16\n    asyncUploadPersistentBuffer: 1\n    resolutionScalingFixedDPIFactor: 1\n    customRenderPipeline: {fileID: 0}\n    excludedTargetPlatforms: []\n  - serializedVersion: 2\n    name: Very High\n    pixelLightCount: 3\n    shadows: 2\n    shadowResolution: 2\n    shadowProjection: 1\n    shadowCascades: 2\n    shadowDistance: 70\n    shadowNearPlaneOffset: 3\n    shadowCascade2Split: 0.33333334\n    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}\n    shadowmaskMode: 1\n    skinWeights: 4\n    textureQuality: 0\n    anisotropicTextures: 2\n    antiAliasing: 2\n    softParticles: 1\n    softVegetation: 1\n    realtimeReflectionProbes: 1\n    billboardsFaceCameraPosition: 1\n    vSyncCount: 1\n    lodBias: 1.5\n    maximumLODLevel: 0\n    streamingMipmapsActive: 0\n    streamingMipmapsAddAllCameras: 1\n    streamingMipmapsMemoryBudget: 512\n    streamingMipmapsRenderersPerFrame: 512\n    streamingMipmapsMaxLevelReduction: 2\n    streamingMipmapsMaxFileIORequests: 1024\n    particleRaycastBudget: 1024\n    asyncUploadTimeSlice: 2\n    asyncUploadBufferSize: 16\n    asyncUploadPersistentBuffer: 1\n    resolutionScalingFixedDPIFactor: 1\n    customRenderPipeline: {fileID: 0}\n    excludedTargetPlatforms: []\n  - serializedVersion: 2\n    name: Ultra\n    pixelLightCount: 4\n    shadows: 2\n    shadowResolution: 2\n    shadowProjection: 1\n    shadowCascades: 4\n    shadowDistance: 150\n    shadowNearPlaneOffset: 3\n    shadowCascade2Split: 0.33333334\n    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}\n    shadowmaskMode: 1\n    skinWeights: 255\n    textureQuality: 0\n    anisotropicTextures: 2\n    antiAliasing: 2\n    softParticles: 1\n    softVegetation: 1\n    realtimeReflectionProbes: 1\n    billboardsFaceCameraPosition: 1\n    vSyncCount: 1\n    lodBias: 2\n    maximumLODLevel: 0\n    streamingMipmapsActive: 0\n    streamingMipmapsAddAllCameras: 1\n    streamingMipmapsMemoryBudget: 512\n    streamingMipmapsRenderersPerFrame: 512\n    streamingMipmapsMaxLevelReduction: 2\n    streamingMipmapsMaxFileIORequests: 1024\n    particleRaycastBudget: 4096\n    asyncUploadTimeSlice: 2\n    asyncUploadBufferSize: 16\n    asyncUploadPersistentBuffer: 1\n    resolutionScalingFixedDPIFactor: 1\n    customRenderPipeline: {fileID: 0}\n    excludedTargetPlatforms: []\n  m_PerPlatformDefaultQuality:\n    Android: 2\n    Lumin: 5\n    GameCoreScarlett: 5\n    GameCoreXboxOne: 5\n    Nintendo Switch: 5\n    OpenHarmony: 2\n    PS4: 5\n    PS5: 5\n    Stadia: 5\n    Standalone: 5\n    WebGL: 3\n    Windows Store Apps: 5\n    XboxOne: 5\n    iPhone: 2\n    tvOS: 2\n"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "functionCall": {
+            "id": "call_05_qp9DnUSNxlLlvD1xpiny9252",
+            "name": "glob",
+            "args": {
+              "pattern": "Assets/Art/**/*",
+              "path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "functionResponse": {
+            "id": "call_05_qp9DnUSNxlLlvD1xpiny9252",
+            "name": "glob",
+            "response": {
+              "output": "Found 333 file(s) matching \"Assets/Art/**/*\" within F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself, sorted by modification time (newest first):\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests\\Chests_Snow.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests\\Chests_Snow.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests\\Chests.aseprite\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests\\Chests.aseprite.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests\\Chests.gif\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests\\Chests.gif.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests\\Chests.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests\\Chests.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_1.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_1.tsx\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_1.tsx.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_1\\BG_1.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_1\\BG_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_2.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_2.tsx\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_2.tsx.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_2\\BG_2.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_2\\BG_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_3.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_3.tsx\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_3.tsx.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_3\\BG_3_alt.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_3\\BG_3_alt.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_3\\BG_3.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_3\\BG_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Free.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Free.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Free.tmx\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Free.tmx.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Mockup.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Mockup.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Sale-board.tsx\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Sale-board.tsx.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Terrain_and_Props.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Terrain_and_Props.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Terrain_and_Props.tsx\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Terrain_and_Props.tsx.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Terrain-and-Props-OLD.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Terrain-and-Props-OLD.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\LICENSE.md\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\LICENSE.md.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\README.md\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\README.md.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\changelog.txt\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\changelog.txt.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\Contact.txt\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\Contact.txt.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\license.txt\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\license.txt.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0000_9.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0000_9.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0001_8.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0001_8.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0002_7.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0002_7.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0003_6.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0003_6.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0004_Lights.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0004_Lights.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0005_5.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0005_5.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0006_4.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0006_4.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0007_Lights.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0007_Lights.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0008_3.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0008_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0009_2.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0009_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0010_1.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0010_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0011_0.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0011_0.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\Preview.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\Preview\\Background.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\Preview\\Background.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PSD.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PSD\\Background.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PSD\\Background.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\readme.txt\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\readme.txt.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Forest.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Forest.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Plataformer Painted Style.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Plataformer Painted Style.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Runner.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Runner.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Snowy Forest.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Snowy Forest.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background\\background_layer_1.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background\\background_layer_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background\\background_layer_2.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background\\background_layer_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background\\background_layer_3.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background\\background_layer_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\character.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\character\\char_blue.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\character\\char_blue.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\fence_1.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\fence_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\fence_2.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\fence_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\grass_1.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\grass_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\grass_2.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\grass_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\grass_3.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\grass_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\lamp.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\lamp.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\rock_1.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\rock_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\rock_2.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\rock_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\rock_3.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\rock_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop_anim 1.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop_anim 1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop_anim 2.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop_anim 2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop_anim.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop_anim.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\sign.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\sign.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\oak_woods_tileset.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\oak_woods_tileset.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\readme.TXT\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\readme.TXT.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\shop_anim_0.controller\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\shop_anim_0.controller.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\Shop.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\Shop.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background1.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background2.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background3.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background4a.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background4a.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background4b.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background4b.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\mainlev_build.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\mainlev_build.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\props1.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\props1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\props2.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\props2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\PSD.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\PSD\\background.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\PSD\\background.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\PSD\\mainlev_build.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\PSD\\mainlev_build.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\PSD\\props1.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\PSD\\props1.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\PSD\\props2.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\PSD\\props2.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland_Mountains_1.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland_Mountains_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland_Mountains_2.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland_Mountains_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland_Sky.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland_Sky.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland-Files.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland-Files.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\OtherPic.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\OtherPic\\主菜单.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\OtherPic\\主菜单.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_Info.txt\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_Info.txt.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\attack_from_air.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\attack_from_air.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Attacks.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Attacks.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Climb.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Climb.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\crouch_attacks.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\crouch_attacks.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\crouch_idle.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\crouch_idle.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Death.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Death.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Hanging.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Hanging.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Health.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Health.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Hurt.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Hurt.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Idle.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Idle.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Jump.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Jump.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Pray.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Pray.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Roll.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Roll.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Run.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Run.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Slide.psd\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\_PSD\\Slide.psd.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\attack_from_air.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\attack_from_air.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Attacks.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Attacks.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Climb.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Climb.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\crouch_attacks.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\crouch_attacks.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\crouch_idle.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\crouch_idle.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Death.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Death.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Hanging.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Hanging.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Health.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Health.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Hurt.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Hurt.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Idle.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Idle.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Jump.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Jump.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\license.txt\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\license.txt.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Pray.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Pray.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Roll.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Roll.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Run.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Run.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Slide.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Slide.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\License.txt\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\License.txt.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Preview.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Preview.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\ATTACK 1.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\ATTACK 1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\HURT.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\HURT.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\IDLE.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\IDLE.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\RUN.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\RUN.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Attack1.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Attack1.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Attack2.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Attack2.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Attack3.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Attack3.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Die.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Die.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Fall.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Fall.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Getup.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Getup.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\HeavyAttack.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\HeavyAttack.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Hurt.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Hurt.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Idle.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Idle.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Jump.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Jump.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Player.controller\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Player.controller.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Run.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Run.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Slide.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\Slide.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\ToGround.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\ToGround.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\UseBlessing.anim\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Animation\\UseBlessing.anim.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Effect Block-Sheet.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Effect Block-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Effect HP MP-Sheet.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Effect HP MP-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Effect-Sheet.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Effect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorManNoEffect-Sheet.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorManNoEffect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorWoman-Sheet.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorWoman-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorWomanNoEffect-Sheet.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorWomanNoEffect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\WarriorMan-Sheet.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\WarriorMan-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorMan-Sheet.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorMan-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorManNoEffect-Sheet.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorManNoEffect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorWoman-Sheet.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorWoman-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorWomanNoEffect-Sheet.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorWomanNoEffect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\按钮.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\按钮.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\ChatGPT Image 2026年5月7日 22_41_53.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\ChatGPT Image 2026年5月7日 22_41_53.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\freeversion.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\freeversion.png\\__MACOSX.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\freeversion.png\\__MACOSX\\._freeversion.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\freeversion.png\\freeversion.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\freeversion.png\\freeversion.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\title.png\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\title.png.meta"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "functionCall": {
+            "id": "call_06_xwkjP6eiVOEiUbPgJVFs6537",
+            "name": "glob",
+            "args": {
+              "pattern": "Assets/Perfabs/**/*",
+              "path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "functionResponse": {
+            "id": "call_06_xwkjP6eiVOEiUbPgJVFs6537",
+            "name": "glob",
+            "response": {
+              "output": "Found 6 file(s) matching \"Assets/Perfabs/**/*\" within F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself, sorted by modification time (newest first):\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\Player.prefab.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\Player.prefab\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\栅栏.prefab\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\栅栏.prefab.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\Shop.prefab\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\Shop.prefab.meta"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "description": "Subagent auto-save triggered by terminal status: completed_partial",
+  "prefixContext": {
+    "systemPrompt": {
+      "inheritance": "override",
+      "static": {
+        "kind": "override_inline_static",
+        "hash": "98349db4a75d87f4712f03733f46f78baf06fd7a8640b702db980df272f0f7a8",
+        "text": "You are a file search specialist. You excel at thoroughly navigating and exploring codebases.\n\n=== CRITICAL: READ-ONLY MODE - NO FILE MODIFICATIONS ===\nThis is a READ-ONLY exploration task. You are STRICTLY PROHIBITED from:\n- Creating new files (no writing, touch, or file creation of any kind)\n- Modifying existing files (no edit operations)\n- Deleting files (no rm or deletion)\n- Moving or copying files (no mv or cp)\n- Creating temporary files anywhere, including /tmp\n- Using redirect operators (>, >>, |) or heredocs to write to files\n- Running ANY commands that change system state\n\nYour role is EXCLUSIVELY to search and analyze existing code.\n\nYour strengths:\n- Rapidly finding files using glob patterns\n- Searching code and text with powerful regex patterns\n- Reading and analyzing file contents\n\nGuidelines:\n- Use glob for broad file pattern matching\n- Use search_file_content for searching file contents with regex\n- Use read_file when you know the specific file path you need to read\n- Use run_shell_command ONLY for read-only operations (ls, git status, git log, git diff, find, cat, head, tail)\n- NEVER use run_shell_command for: mkdir, touch, rm, cp, mv, git add, git commit, npm install, pip install, or any file creation/modification\n- Adapt your search approach based on the thoroughness level specified by the caller\n- Wherever possible, spawn multiple parallel tool calls for searching and reading files\n\nNOTE: You are meant to be a fast agent that returns output as quickly as possible. In order to achieve this you must:\n- Make efficient use of the tools at your disposal: be smart about how you search for files and implementations\n- Wherever possible you should try to spawn multiple parallel tool calls for grepping and reading files\n- Start broad and narrow down. Use multiple search strategies if the first doesn't yield results.\n- Be thorough: Check multiple locations, consider different naming conventions, look for related files.\n\nComplete the search request efficiently and report your findings clearly.\n\n\n# Environment Context\nI'm currently working in the directory: F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\nHere is the folder structure of the current working directories:\n\nShowing up to 20 items (files + folders). Folders or files indicated with ... contain more items not shown, were ignored, or the display limit (20 items) was reached.\n\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\\n├───.codelyignore\n├───.com-unity-codely.json\n├───Assembly-CSharp.csproj\n├───Chipped Jade, the King Itself.sln\n├───.codely-cli\\\n│   ├───settings.json\n│   └───extensions\\\n├───.vscode\\\n│   ├───extensions.json\n│   ├───launch.json\n│   └───settings.json\n├───Assets\\\n│   ├───Art.meta\n│   ├───Perfabs.meta\n│   ├───...\n│   └───...\n├───Library\\\n├───Logs\\\n├───Packages\\\n├───ProjectSettings\\\n├───Temp\\\n└───UserSettings\\\nImportant Rules:\n* You are running in a non-interactive mode. You CANNOT ask the user for input or clarification.\n* Work systematically using available tools to complete your task.\n* Always use absolute paths for file operations. Construct them using the provided \"Environment Context\".\n* When you have completed your task, you MUST call the `complete_task` tool.\n* Do not call any other tools in the same turn as `complete_task`.\n* This is the ONLY way to complete your mission. If you stop calling tools without calling this, you have failed."
+      },
+      "dynamic": {
+        "sections": [
+          {
+            "name": "memory",
+            "text": "---\n\n--- Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---\n## Codely Added Memories\n- 用户偏好使用中文交流，请始终用中文回复。\n--- End of Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---",
+            "hash": "6e2e3f7c69d8bf2c0ec63a6d3885add5087d626a0ca4c928ddbb6cc554f1b2a1"
+          },
+          {
+            "name": "additional_prompts",
+            "text": null,
+            "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ],
+        "joinedText": "---\n\n--- Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---\n## Codely Added Memories\n- 用户偏好使用中文交流，请始终用中文回复。\n--- End of Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---"
+      }
+    },
+    "sessionSnapshot": {
+      "userMessageId": "95a69982-5b80-4549-aed2-8493f75a39d5",
+      "assistantMessageId": "1b9de433-fc5e-44c1-846b-79bed5c4e5e9",
+      "userContent": [
+        {
+          "text": "This is the Codely CLI. We are setting up the context for our chat.\nToday's date is 2026年5月27日星期三.\nMy operating system is: win32\nI'm currently working in the directory: F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\nHere is the folder structure of the current working directories:\n\nShowing up to 20 items (files + folders). Folders or files indicated with ... contain more items not shown, were ignored, or the display limit (20 items) was reached.\n\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\\n├───.codelyignore\n├───.com-unity-codely.json\n├───Assembly-CSharp.csproj\n├───Chipped Jade, the King Itself.sln\n├───.codely-cli\\\n│   ├───settings.json\n│   └───extensions\\\n├───.vscode\\\n│   ├───extensions.json\n│   ├───launch.json\n│   └───settings.json\n├───Assets\\\n│   ├───Art.meta\n│   ├───Perfabs.meta\n│   ├───...\n│   └───...\n├───Library\\\n├───Logs\\\n├───Packages\\\n├───ProjectSettings\\\n├───Temp\\\n└───UserSettings\\"
+        },
+        {
+          "text": "---\n\n--- Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---\n## Codely Added Memories\n- 用户偏好使用中文交流，请始终用中文回复。\n--- End of Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---"
+        },
+        {
+          "text": "<core_static_ref hash=\"98349db4a75d87f4712f03733f46f78baf06fd7a8640b702db980df272f0f7a8\" />"
+        }
+      ],
+      "assistantContent": "Got it. Thanks for the context!",
+      "includes": {
+        "environment": true,
+        "dynamicSystemPrompt": true,
+        "staticSystemPromptRef": true
+      }
+    },
+    "model": "codely-air"
+  },
+  "conversationRecord": {
+    "sessionId": "fdf188df-4568-4f6c-bf21-7c150c79eca3",
+    "projectHash": "60e4db00d978f31b924ec9866c66e27a91d57566af1d9a8883048ac062b50456",
+    "startTime": "2026-05-27T14:56:38.879Z",
+    "lastUpdated": "2026-05-27T14:56:47.336Z",
+    "messages": [
+      {
+        "id": "95a69982-5b80-4549-aed2-8493f75a39d5",
+        "timestamp": "2026-05-27T14:56:38.879Z",
+        "type": "user",
+        "content": [
+          {
+            "text": "This is the Codely CLI. We are setting up the context for our chat.\nToday's date is 2026年5月27日星期三.\nMy operating system is: win32\nI'm currently working in the directory: F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\nHere is the folder structure of the current working directories:\n\nShowing up to 20 items (files + folders). Folders or files indicated with ... contain more items not shown, were ignored, or the display limit (20 items) was reached.\n\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\\n├───.codelyignore\n├───.com-unity-codely.json\n├───Assembly-CSharp.csproj\n├───Chipped Jade, the King Itself.sln\n├───.codely-cli\\\n│   ├───settings.json\n│   └───extensions\\\n├───.vscode\\\n│   ├───extensions.json\n│   ├───launch.json\n│   └───settings.json\n├───Assets\\\n│   ├───Art.meta\n│   ├───Perfabs.meta\n│   ├───...\n│   └───...\n├───Library\\\n├───Logs\\\n├───Packages\\\n├───ProjectSettings\\\n├───Temp\\\n└───UserSettings\\"
+          },
+          {
+            "text": "---\n\n--- Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---\n## Codely Added Memories\n- 用户偏好使用中文交流，请始终用中文回复。\n--- End of Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---"
+          },
+          {
+            "text": "<core_static_ref hash=\"98349db4a75d87f4712f03733f46f78baf06fd7a8640b702db980df272f0f7a8\" />"
+          }
+        ],
+        "attachmentMeta": {
+          "type": "session_snapshot",
+          "isMeta": true,
+          "snapshotRole": "startup_qa",
+          "snapshotVersion": 1,
+          "includes": {
+            "environment": true,
+            "dynamicSystemPrompt": true,
+            "staticSystemPromptRef": true
+          }
+        },
+        "committed": true
+      },
+      {
+        "id": "1b9de433-fc5e-44c1-846b-79bed5c4e5e9",
+        "timestamp": "2026-05-27T14:56:38.880Z",
+        "type": "gemini",
+        "content": "Got it. Thanks for the context!",
+        "committed": true,
+        "thoughts": [],
+        "tokens": null,
+        "model": "codely-air",
+        "attachmentMeta": {
+          "type": "session_snapshot",
+          "isMeta": true,
+          "snapshotRole": "startup_qa_ack",
+          "snapshotVersion": 1
+        }
+      },
+      {
+        "id": "db9935d7-d499-4700-a4ea-7006a04e947b",
+        "timestamp": "2026-05-27T14:56:38.881Z",
+        "type": "user",
+        "content": "Task MUST complete:\nExplore this Unity project to find:\n1. Player-related scripts and prefabs (look in Assets/Scripts, Assets/Perfabs, etc.)\n2. Any sprite/texture assets related to the player character (in Assets/Art or similar)\n3. Any existing quality settings or texture import settings\n4. Check if there are .meta files for sprite textures and read their filterMode settings\n\nFocus on finding:\n- Player movement scripts\n- Player sprite texture .meta files (look for filterMode, textureType settings)\n- Any Pixel Perfect Camera or related setup\n- Quality settings (ProjectSettings/QualitySettings.asset)\n\nThoroughness: medium",
+        "committed": true
+      },
+      {
+        "id": "6ec3b4af-1085-4273-bc8f-6edf8503e739",
+        "timestamp": "2026-05-27T14:56:47.229Z",
+        "type": "gemini",
+        "content": "<think>Let me explore this Unity project systematically to find the requested information. I'll start with multiple parallel searches to be efficient.</think>",
+        "canonicalParts": [
+          {
+            "text": "Let",
+            "thought": true
+          },
+          {
+            "text": " me",
+            "thought": true
+          },
+          {
+            "text": " explore",
+            "thought": true
+          },
+          {
+            "text": " this",
+            "thought": true
+          },
+          {
+            "text": " Unity",
+            "thought": true
+          },
+          {
+            "text": " project",
+            "thought": true
+          },
+          {
+            "text": " systematically",
+            "thought": true
+          },
+          {
+            "text": " to",
+            "thought": true
+          },
+          {
+            "text": " find",
+            "thought": true
+          },
+          {
+            "text": " the",
+            "thought": true
+          },
+          {
+            "text": " requested",
+            "thought": true
+          },
+          {
+            "text": " information",
+            "thought": true
+          },
+          {
+            "text": ".",
+            "thought": true
+          },
+          {
+            "text": " I",
+            "thought": true
+          },
+          {
+            "text": "'ll",
+            "thought": true
+          },
+          {
+            "text": " start",
+            "thought": true
+          },
+          {
+            "text": " with",
+            "thought": true
+          },
+          {
+            "text": " multiple",
+            "thought": true
+          },
+          {
+            "text": " parallel",
+            "thought": true
+          },
+          {
+            "text": " searches",
+            "thought": true
+          },
+          {
+            "text": " to",
+            "thought": true
+          },
+          {
+            "text": " be",
+            "thought": true
+          },
+          {
+            "text": " efficient",
+            "thought": true
+          },
+          {
+            "text": ".",
+            "thought": true
+          }
+        ],
+        "committed": true,
+        "thoughts": [
+          {
+            "subject": "",
+            "description": "Let",
+            "timestamp": "2026-05-27T14:56:44.037Z"
+          },
+          {
+            "subject": "",
+            "description": "me",
+            "timestamp": "2026-05-27T14:56:44.038Z"
+          },
+          {
+            "subject": "",
+            "description": "explore",
+            "timestamp": "2026-05-27T14:56:44.130Z"
+          },
+          {
+            "subject": "",
+            "description": "this",
+            "timestamp": "2026-05-27T14:56:44.131Z"
+          },
+          {
+            "subject": "",
+            "description": "Unity",
+            "timestamp": "2026-05-27T14:56:44.133Z"
+          },
+          {
+            "subject": "",
+            "description": "project",
+            "timestamp": "2026-05-27T14:56:44.134Z"
+          },
+          {
+            "subject": "",
+            "description": "systematically",
+            "timestamp": "2026-05-27T14:56:44.139Z"
+          },
+          {
+            "subject": "",
+            "description": "to",
+            "timestamp": "2026-05-27T14:56:44.140Z"
+          },
+          {
+            "subject": "",
+            "description": "find",
+            "timestamp": "2026-05-27T14:56:44.144Z"
+          },
+          {
+            "subject": "",
+            "description": "the",
+            "timestamp": "2026-05-27T14:56:44.146Z"
+          },
+          {
+            "subject": "",
+            "description": "requested",
+            "timestamp": "2026-05-27T14:56:44.152Z"
+          },
+          {
+            "subject": "",
+            "description": "information",
+            "timestamp": "2026-05-27T14:56:44.152Z"
+          },
+          {
+            "subject": "",
+            "description": ".",
+            "timestamp": "2026-05-27T14:56:44.176Z"
+          },
+          {
+            "subject": "",
+            "description": "I",
+            "timestamp": "2026-05-27T14:56:44.176Z"
+          },
+          {
+            "subject": "",
+            "description": "'ll",
+            "timestamp": "2026-05-27T14:56:44.176Z"
+          },
+          {
+            "subject": "",
+            "description": "start",
+            "timestamp": "2026-05-27T14:56:44.176Z"
+          },
+          {
+            "subject": "",
+            "description": "with",
+            "timestamp": "2026-05-27T14:56:44.176Z"
+          },
+          {
+            "subject": "",
+            "description": "multiple",
+            "timestamp": "2026-05-27T14:56:44.178Z"
+          },
+          {
+            "subject": "",
+            "description": "parallel",
+            "timestamp": "2026-05-27T14:56:44.212Z"
+          },
+          {
+            "subject": "",
+            "description": "searches",
+            "timestamp": "2026-05-27T14:56:44.212Z"
+          },
+          {
+            "subject": "",
+            "description": "to",
+            "timestamp": "2026-05-27T14:56:44.215Z"
+          },
+          {
+            "subject": "",
+            "description": "be",
+            "timestamp": "2026-05-27T14:56:44.215Z"
+          },
+          {
+            "subject": "",
+            "description": "efficient",
+            "timestamp": "2026-05-27T14:56:44.219Z"
+          },
+          {
+            "subject": "",
+            "description": ".",
+            "timestamp": "2026-05-27T14:56:44.219Z"
+          }
+        ],
+        "tokens": {
+          "input": 4003,
+          "output": 471,
+          "cached": 384,
+          "thoughts": 0,
+          "tool": 0,
+          "total": 4474
+        },
+        "model": "codely-air",
+        "toolCalls": [
+          {
+            "id": "call_00_3ONDpViXMIQfCOWwSlhE9186",
+            "name": "list_directory",
+            "args": {
+              "path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets"
+            },
+            "result": {
+              "functionResponse": {
+                "id": "call_00_3ONDpViXMIQfCOWwSlhE9186",
+                "name": "list_directory",
+                "response": {
+                  "output": "Directory listing for F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets:\n[DIR] Art\n[DIR] Perfabs\n[DIR] Scenes\n[DIR] Scripts\n[DIR] TextMesh Pro\n[DIR] Tile\nArt.meta\nPerfabs.meta\nScenes.meta\nScripts.meta\nTextMesh Pro.meta\nTile.meta"
+                }
+              }
+            },
+            "status": "success",
+            "timestamp": "2026-05-27T14:56:47.329Z",
+            "agentName": "explore",
+            "agentId": "explore-u3qugf",
+            "resultDisplay": "Listed 12 item(s).",
+            "displayName": "ReadFolder",
+            "description": "Lists the names of files and subdirectories directly within a specified directory path. Can optionally ignore entries matching provided glob patterns.",
+            "renderOutputAsMarkdown": true
+          },
+          {
+            "id": "call_01_9KK6O1jKP3jfZvy8B2IB8801",
+            "name": "glob",
+            "args": {
+              "pattern": "Assets/**/*.cs",
+              "path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself"
+            },
+            "result": {
+              "functionResponse": {
+                "id": "call_01_9KK6O1jKP3jfZvy8B2IB8801",
+                "name": "glob",
+                "response": {
+                  "output": "Found 5 file(s) matching \"Assets/**/*.cs\" within F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself, sorted by modification time (newest first):\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Other\\ButtonHoverEffect.cs\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Other\\CameraController.cs\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Player\\PlayerController.cs\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Player\\PlayerStat.cs\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Player\\PlayerStateMachine.cs"
+                }
+              }
+            },
+            "status": "success",
+            "timestamp": "2026-05-27T14:56:47.330Z",
+            "agentName": "explore",
+            "agentId": "explore-u3qugf",
+            "resultDisplay": "Found 5 matching file(s)",
+            "displayName": "FindFiles",
+            "description": "Efficiently finds files matching specific glob patterns (e.g., `src/**/*.ts`, `**/*.md`), returning absolute paths sorted by modification time (newest first). Ideal for quickly locating files based on their name or path structure, especially in large codebases.",
+            "renderOutputAsMarkdown": true
+          },
+          {
+            "id": "call_02_Qiq1YdE1LFTHbmLG3d1v6404",
+            "name": "glob",
+            "args": {
+              "pattern": "Assets/**/*.prefab",
+              "path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself"
+            },
+            "result": {
+              "functionResponse": {
+                "id": "call_02_Qiq1YdE1LFTHbmLG3d1v6404",
+                "name": "glob",
+                "response": {
+                  "output": "Found 4 file(s) matching \"Assets/**/*.prefab\" within F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself, sorted by modification time (newest first):\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\Player.prefab\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\栅栏.prefab\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\Shop.prefab\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Tile\\出生地\\出生地.prefab"
+                }
+              }
+            },
+            "status": "success",
+            "timestamp": "2026-05-27T14:56:47.331Z",
+            "agentName": "explore",
+            "agentId": "explore-u3qugf",
+            "resultDisplay": "Found 4 matching file(s)",
+            "displayName": "FindFiles",
+            "description": "Efficiently finds files matching specific glob patterns (e.g., `src/**/*.ts`, `**/*.md`), returning absolute paths sorted by modification time (newest first). Ideal for quickly locating files based on their name or path structure, especially in large codebases.",
+            "renderOutputAsMarkdown": true
+          },
+          {
+            "id": "call_03_zRzRdZtnKYny1Jtf9q3Q6502",
+            "name": "glob",
+            "args": {
+              "pattern": "Assets/**/*.png.meta",
+              "path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself"
+            },
+            "result": {
+              "functionResponse": {
+                "id": "call_03_zRzRdZtnKYny1Jtf9q3Q6502",
+                "name": "glob",
+                "response": {
+                  "output": "Found 96 file(s) matching \"Assets/**/*.png.meta\" within F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself, sorted by modification time (newest first):\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests\\Chests_Snow.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Item\\Animated Chests\\Chests.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_1\\BG_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_2\\BG_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_3\\BG_3_alt.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\BG_3\\BG_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Free.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Mockup.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Terrain_and_Props.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\forest-nature-fantasy-tileset-free\\Fantasy Swamp Forest\\Free\\Terrain-and-Props-OLD.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0000_9.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0001_8.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0002_7.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0003_6.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0004_Lights.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0005_5.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0006_4.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0007_Lights.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0008_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0009_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0010_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\PNG\\Background layers\\Layer_0011_0.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\Preview\\Background.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Forest.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Plataformer Painted Style.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Runner.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Free Pixel Art Forest\\You may also like\\Pixel Art Snowy Forest.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background\\background_layer_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background\\background_layer_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\background\\background_layer_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\character\\char_blue.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\fence_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\fence_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\grass_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\grass_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\grass_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\lamp.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\rock_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\rock_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\rock_3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop_anim 1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop_anim 2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop_anim.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\shop.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\decorations\\sign.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\oak_woods_v1.0\\oak_woods_tileset.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background3.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background4a.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\background4b.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\mainlev_build.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\props1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\PixelFantasy_Caves_1.0\\props2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland_Mountains_1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland_Mountains_2.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland_Sky.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Map\\Wasteland-Files.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\OtherPic\\主菜单.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\attack_from_air.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Attacks.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Climb.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\crouch_attacks.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\crouch_idle.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Death.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Hanging.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Health.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Hurt.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Idle.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Jump.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Pray.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Roll.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Run.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\2D_SL_Knight_v1.0\\Slide.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Preview.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\ATTACK 1.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\HURT.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\IDLE.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\People\\FREE_Samurai 2D Pixel Art v1.2\\Sprites\\RUN.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Effect Block-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Effect HP MP-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Effect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorManNoEffect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorWoman-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorWomanNoEffect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\WarriorMan-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorMan-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorManNoEffect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorWoman-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Without Outline\\WarriorWomanNoEffect-Sheet.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\按钮.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\ChatGPT Image 2026年5月7日 22_41_53.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\freeversion.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\freeversion.png\\freeversion.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\UI\\title.png.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\TextMesh Pro\\Sprites\\EmojiOne.png.meta"
+                }
+              }
+            },
+            "status": "success",
+            "timestamp": "2026-05-27T14:56:47.332Z",
+            "agentName": "explore",
+            "agentId": "explore-u3qugf",
+            "resultDisplay": "Found 96 matching file(s)",
+            "displayName": "FindFiles",
+            "description": "Efficiently finds files matching specific glob patterns (e.g., `src/**/*.ts`, `**/*.md`), returning absolute paths sorted by modification time (newest first). Ideal for quickly locating files based on their name or path structure, especially in large codebases.",
+            "renderOutputAsMarkdown": true
+          },
+          {
+            "id": "call_04_HLB8hvOGIHOW1ZnKQWTr0336",
+            "name": "read_file",
+            "args": {
+              "absolute_path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\ProjectSettings\\QualitySettings.asset"
+            },
+            "result": {
+              "functionResponse": {
+                "id": "call_04_HLB8hvOGIHOW1ZnKQWTr0336",
+                "name": "read_file",
+                "response": {
+                  "output": "%YAML 1.1\n%TAG !u! tag:yousandi.cn,2023:\n--- !u!47 &1\nQualitySettings:\n  m_ObjectHideFlags: 0\n  serializedVersion: 5\n  m_CurrentQuality: 5\n  m_QualitySettings:\n  - serializedVersion: 2\n    name: Very Low\n    pixelLightCount: 0\n    shadows: 0\n    shadowResolution: 0\n    shadowProjection: 1\n    shadowCascades: 1\n    shadowDistance: 15\n    shadowNearPlaneOffset: 3\n    shadowCascade2Split: 0.33333334\n    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}\n    shadowmaskMode: 0\n    skinWeights: 1\n    textureQuality: 1\n    anisotropicTextures: 0\n    antiAliasing: 0\n    softParticles: 0\n    softVegetation: 0\n    realtimeReflectionProbes: 0\n    billboardsFaceCameraPosition: 0\n    vSyncCount: 0\n    lodBias: 0.3\n    maximumLODLevel: 0\n    streamingMipmapsActive: 0\n    streamingMipmapsAddAllCameras: 1\n    streamingMipmapsMemoryBudget: 512\n    streamingMipmapsRenderersPerFrame: 512\n    streamingMipmapsMaxLevelReduction: 2\n    streamingMipmapsMaxFileIORequests: 1024\n    particleRaycastBudget: 4\n    asyncUploadTimeSlice: 2\n    asyncUploadBufferSize: 16\n    asyncUploadPersistentBuffer: 1\n    resolutionScalingFixedDPIFactor: 1\n    customRenderPipeline: {fileID: 0}\n    excludedTargetPlatforms: []\n  - serializedVersion: 2\n    name: Low\n    pixelLightCount: 0\n    shadows: 0\n    shadowResolution: 0\n    shadowProjection: 1\n    shadowCascades: 1\n    shadowDistance: 20\n    shadowNearPlaneOffset: 3\n    shadowCascade2Split: 0.33333334\n    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}\n    shadowmaskMode: 0\n    skinWeights: 2\n    textureQuality: 0\n    anisotropicTextures: 0\n    antiAliasing: 0\n    softParticles: 0\n    softVegetation: 0\n    realtimeReflectionProbes: 0\n    billboardsFaceCameraPosition: 0\n    vSyncCount: 0\n    lodBias: 0.4\n    maximumLODLevel: 0\n    streamingMipmapsActive: 0\n    streamingMipmapsAddAllCameras: 1\n    streamingMipmapsMemoryBudget: 512\n    streamingMipmapsRenderersPerFrame: 512\n    streamingMipmapsMaxLevelReduction: 2\n    streamingMipmapsMaxFileIORequests: 1024\n    particleRaycastBudget: 16\n    asyncUploadTimeSlice: 2\n    asyncUploadBufferSize: 16\n    asyncUploadPersistentBuffer: 1\n    resolutionScalingFixedDPIFactor: 1\n    customRenderPipeline: {fileID: 0}\n    excludedTargetPlatforms: []\n  - serializedVersion: 2\n    name: Medium\n    pixelLightCount: 1\n    shadows: 1\n    shadowResolution: 0\n    shadowProjection: 1\n    shadowCascades: 1\n    shadowDistance: 20\n    shadowNearPlaneOffset: 3\n    shadowCascade2Split: 0.33333334\n    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}\n    shadowmaskMode: 0\n    skinWeights: 2\n    textureQuality: 0\n    anisotropicTextures: 1\n    antiAliasing: 0\n    softParticles: 0\n    softVegetation: 0\n    realtimeReflectionProbes: 0\n    billboardsFaceCameraPosition: 0\n    vSyncCount: 1\n    lodBias: 0.7\n    maximumLODLevel: 0\n    streamingMipmapsActive: 0\n    streamingMipmapsAddAllCameras: 1\n    streamingMipmapsMemoryBudget: 512\n    streamingMipmapsRenderersPerFrame: 512\n    streamingMipmapsMaxLevelReduction: 2\n    streamingMipmapsMaxFileIORequests: 1024\n    particleRaycastBudget: 64\n    asyncUploadTimeSlice: 2\n    asyncUploadBufferSize: 16\n    asyncUploadPersistentBuffer: 1\n    resolutionScalingFixedDPIFactor: 1\n    customRenderPipeline: {fileID: 0}\n    excludedTargetPlatforms: []\n  - serializedVersion: 2\n    name: High\n    pixelLightCount: 2\n    shadows: 2\n    shadowResolution: 1\n    shadowProjection: 1\n    shadowCascades: 2\n    shadowDistance: 40\n    shadowNearPlaneOffset: 3\n    shadowCascade2Split: 0.33333334\n    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}\n    shadowmaskMode: 1\n    skinWeights: 2\n    textureQuality: 0\n    anisotropicTextures: 1\n    antiAliasing: 0\n    softParticles: 0\n    softVegetation: 1\n    realtimeReflectionProbes: 1\n    billboardsFaceCameraPosition: 1\n    vSyncCount: 1\n    lodBias: 1\n    maximumLODLevel: 0\n    streamingMipmapsActive: 0\n    streamingMipmapsAddAllCameras: 1\n    streamingMipmapsMemoryBudget: 512\n    streamingMipmapsRenderersPerFrame: 512\n    streamingMipmapsMaxLevelReduction: 2\n    streamingMipmapsMaxFileIORequests: 1024\n    particleRaycastBudget: 256\n    asyncUploadTimeSlice: 2\n    asyncUploadBufferSize: 16\n    asyncUploadPersistentBuffer: 1\n    resolutionScalingFixedDPIFactor: 1\n    customRenderPipeline: {fileID: 0}\n    excludedTargetPlatforms: []\n  - serializedVersion: 2\n    name: Very High\n    pixelLightCount: 3\n    shadows: 2\n    shadowResolution: 2\n    shadowProjection: 1\n    shadowCascades: 2\n    shadowDistance: 70\n    shadowNearPlaneOffset: 3\n    shadowCascade2Split: 0.33333334\n    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}\n    shadowmaskMode: 1\n    skinWeights: 4\n    textureQuality: 0\n    anisotropicTextures: 2\n    antiAliasing: 2\n    softParticles: 1\n    softVegetation: 1\n    realtimeReflectionProbes: 1\n    billboardsFaceCameraPosition: 1\n    vSyncCount: 1\n    lodBias: 1.5\n    maximumLODLevel: 0\n    streamingMipmapsActive: 0\n    streamingMipmapsAddAllCameras: 1\n    streamingMipmapsMemoryBudget: 512\n    streamingMipmapsRenderersPerFrame: 512\n    streamingMipmapsMaxLevelReduction: 2\n    streamingMipmapsMaxFileIORequests: 1024\n    particleRaycastBudget: 1024\n    asyncUploadTimeSlice: 2\n    asyncUploadBufferSize: 16\n    asyncUploadPersistentBuffer: 1\n    resolutionScalingFixedDPIFactor: 1\n    customRenderPipeline: {fileID: 0}\n    excludedTargetPlatforms: []\n  - serializedVersion: 2\n    name: Ultra\n    pixelLightCount: 4\n    shadows: 2\n    shadowResolution: 2\n    shadowProjection: 1\n    shadowCascades: 4\n    shadowDistance: 150\n    shadowNearPlaneOffset: 3\n    shadowCascade2Split: 0.33333334\n    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}\n    shadowmaskMode: 1\n    skinWeights: 255\n    textureQuality: 0\n    anisotropicTextures: 2\n    antiAliasing: 2\n    softParticles: 1\n    softVegetation: 1\n    realtimeReflectionProbes: 1\n    billboardsFaceCameraPosition: 1\n    vSyncCount: 1\n    lodBias: 2\n    maximumLODLevel: 0\n    streamingMipmapsActive: 0\n    streamingMipmapsAddAllCameras: 1\n    streamingMipmapsMemoryBudget: 512\n    streamingMipmapsRenderersPerFrame: 512\n    streamingMipmapsMaxLevelReduction: 2\n    streamingMipmapsMaxFileIORequests: 1024\n    particleRaycastBudget: 4096\n    asyncUploadTimeSlice: 2\n    asyncUploadBufferSize: 16\n    asyncUploadPersistentBuffer: 1\n    resolutionScalingFixedDPIFactor: 1\n    customRenderPipeline: {fileID: 0}\n    excludedTargetPlatforms: []\n  m_PerPlatformDefaultQuality:\n    Android: 2\n    Lumin: 5\n    GameCoreScarlett: 5\n    GameCoreXboxOne: 5\n    Nintendo Switch: 5\n    OpenHarmony: 2\n    PS4: 5\n    PS5: 5\n    Stadia: 5\n    Standalone: 5\n    WebGL: 3\n    Windows Store Apps: 5\n    XboxOne: 5\n    iPhone: 2\n    tvOS: 2\n"
+                }
+              }
+            },
+            "status": "success",
+            "timestamp": "2026-05-27T14:56:47.332Z",
+            "agentName": "explore",
+            "agentId": "explore-u3qugf",
+            "resultDisplay": "",
+            "displayName": "ReadFile",
+            "description": "Reads and returns the content of a specified file. By default reads up to 2000 lines starting from the beginning of the file. Files whose selected range exceeds 256 KB are truncated with an advisory; use 'offset' and 'limit' only if the file is too large to read at once — it's recommended to read the whole file by not providing these parameters. Handles text, images (PNG, JPG, GIF, WEBP, SVG, BMP), and PDF files. For images, videos or other multimedia files, use the 'analyze_multimedia' tool if available.",
+            "renderOutputAsMarkdown": true
+          },
+          {
+            "id": "call_05_qp9DnUSNxlLlvD1xpiny9252",
+            "name": "glob",
+            "args": {
+              "pattern": "Assets/Art/**/*",
+              "path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself"
+            },
+            "result": "[chat-record preview truncated]\nTool: glob\nCall ID: call_05_qp9DnUSNxlLlvD1xpiny9252\nPayload: result\nOriginal size: 40,458 chars\nFull payload saved to: C:\\Users\\ASUS\\.codely-cli\\tmp\\60e4db00d978f31b924ec9866c66e27a91d57566af1d9a8883048ac062b50456\\tool-call-artifacts\\fdf188df-4568-4f6c-bf21-7c150c79eca3\\2026-05-27-22-56-47-335-glob-call_05_qp9DnUSNxlLlvD1xpiny9252-result.json\n\n{\n  \"functionResponse\": {\n    \"id\": \"call_05_qp9DnUSNxlLlvD1xpiny9252\",\n    \"name\": \"glob\",\n    \"response\": {\n      \"output\": \"Found 333 file(s) matching \\\"Assets/Art/**/*\\\" within F:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself, sorted by modification time (newest first):\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Item.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Item\\\\Animated Chests.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Item\\\\Animated Chests\\\\Chests_Snow.png\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Item\\\\Animated Chests\\\\Chests_Snow.png.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Item\\\\Animated Chests\\\\Chests.aseprite\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Item\\\\Animated Chests\\\\Chests.aseprite.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Item\\\\Animated Chests\\\\Chests.gif\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Item\\\\Animated Chests\\\\Chests.gif.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Item\\\\Animated Chests\\\\Chests.png\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Item\\\\Animated Chests\\\\Chests.png.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_1.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_1.tsx\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_1.tsx.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_1\\\\BG_1.png\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_1\\\\BG_1.png.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_2.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_2.tsx\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_2.tsx.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_2\\\\BG_2.png\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_2\\\\BG_2.png.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_3.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_3.tsx\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_3.tsx.meta\\nF:\\\\Project-UnityTuanjie\\\\Chipped Jade, the King Itself\\\\Assets\\\\Art\\\\Map\\\\forest-nature-fantasy-tileset-free\\\\Fantasy Swamp Forest\\\\Free\\\\BG_3\\\\BG_3_alt.png\\nF:\\\\Project-UnityTuanjie\\\\Chippe\n...[preview truncated]...",
+            "status": "success",
+            "timestamp": "2026-05-27T14:56:47.333Z",
+            "agentName": "explore",
+            "agentId": "explore-u3qugf",
+            "resultDisplay": "Found 333 matching file(s)\n\nTool output preview truncated (40,458 chars). Full payload saved to: C:\\Users\\ASUS\\.codely-cli\\tmp\\60e4db00d978f31b924ec9866c66e27a91d57566af1d9a8883048ac062b50456\\tool-call-artifacts\\fdf188df-4568-4f6c-bf21-7c150c79eca3\\2026-05-27-22-56-47-335-glob-call_05_qp9DnUSNxlLlvD1xpiny9252-result.json",
+            "resultFilePath": "C:\\Users\\ASUS\\.codely-cli\\tmp\\60e4db00d978f31b924ec9866c66e27a91d57566af1d9a8883048ac062b50456\\tool-call-artifacts\\fdf188df-4568-4f6c-bf21-7c150c79eca3\\2026-05-27-22-56-47-335-glob-call_05_qp9DnUSNxlLlvD1xpiny9252-result.json",
+            "displayName": "FindFiles",
+            "description": "Efficiently finds files matching specific glob patterns (e.g., `src/**/*.ts`, `**/*.md`), returning absolute paths sorted by modification time (newest first). Ideal for quickly locating files based on their name or path structure, especially in large codebases.",
+            "renderOutputAsMarkdown": true
+          },
+          {
+            "id": "call_06_xwkjP6eiVOEiUbPgJVFs6537",
+            "name": "glob",
+            "args": {
+              "pattern": "Assets/Perfabs/**/*",
+              "path": "F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself"
+            },
+            "result": {
+              "functionResponse": {
+                "id": "call_06_xwkjP6eiVOEiUbPgJVFs6537",
+                "name": "glob",
+                "response": {
+                  "output": "Found 6 file(s) matching \"Assets/Perfabs/**/*\" within F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself, sorted by modification time (newest first):\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\Player.prefab.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\Player.prefab\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\栅栏.prefab\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\栅栏.prefab.meta\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\Shop.prefab\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Perfabs\\Shop.prefab.meta"
+                }
+              }
+            },
+            "status": "success",
+            "timestamp": "2026-05-27T14:56:47.334Z",
+            "agentName": "explore",
+            "agentId": "explore-u3qugf",
+            "resultDisplay": "Found 6 matching file(s)",
+            "displayName": "FindFiles",
+            "description": "Efficiently finds files matching specific glob patterns (e.g., `src/**/*.ts`, `**/*.md`), returning absolute paths sorted by modification time (newest first). Ideal for quickly locating files based on their name or path structure, especially in large codebases.",
+            "renderOutputAsMarkdown": true
+          }
+        ]
+      }
+    ],
+    "fileHistorySnapshots": [],
+    "systemPromptRecord": {
+      "static": {
+        "kind": "core_static_ref",
+        "sectionName": "core_static",
+        "hash": "98349db4a75d87f4712f03733f46f78baf06fd7a8640b702db980df272f0f7a8",
+        "placeholderText": "<core_static_ref hash=\"98349db4a75d87f4712f03733f46f78baf06fd7a8640b702db980df272f0f7a8\" />"
+      },
+      "dynamic": {
+        "sections": [
+          {
+            "name": "memory",
+            "text": "---\n\n--- Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---\n## Codely Added Memories\n- 用户偏好使用中文交流，请始终用中文回复。\n--- End of Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---",
+            "hash": "6e2e3f7c69d8bf2c0ec63a6d3885add5087d626a0ca4c928ddbb6cc554f1b2a1"
+          },
+          {
+            "name": "additional_prompts",
+            "text": null,
+            "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ],
+        "joinedText": "---\n\n--- Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---\n## Codely Added Memories\n- 用户偏好使用中文交流，请始终用中文回复。\n--- End of Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---"
+      }
+    }
+  },
+  "codelyVersion": "1.0.0-release.25",
+  "visibleTools": [
+    {
+      "functionDeclarations": [
+        {
+          "name": "glob",
+          "description": "Efficiently finds files matching specific glob patterns (e.g., `src/**/*.ts`, `**/*.md`), returning absolute paths sorted by modification time (newest first). Ideal for quickly locating files based on their name or path structure, especially in large codebases.",
+          "parametersJsonSchema": {
+            "properties": {
+              "pattern": {
+                "description": "The glob pattern to match against (e.g., '**/*.py', 'docs/*.md').",
+                "type": "string"
+              },
+              "path": {
+                "description": "Optional: The absolute path to the directory to search within. If omitted, searches the root directory.",
+                "type": "string"
+              },
+              "case_sensitive": {
+                "description": "Optional: Whether the search should be case-sensitive. Defaults to false.",
+                "type": "boolean"
+              },
+              "respect_git_ignore": {
+                "description": "Optional: Whether to respect .gitignore patterns when finding files. Only available in git repositories. Defaults to true.",
+                "type": "boolean"
+              },
+              "maxResults": {
+                "description": "Optional: Maximum number of file paths to return (default: 1000). Use to limit output for broad patterns.",
+                "type": "number",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "pattern"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "list_directory",
+          "description": "Lists the names of files and subdirectories directly within a specified directory path. Can optionally ignore entries matching provided glob patterns.",
+          "parametersJsonSchema": {
+            "properties": {
+              "path": {
+                "description": "The absolute path to the directory to list (must be absolute, not relative)",
+                "type": "string"
+              },
+              "ignore": {
+                "description": "List of glob patterns to ignore",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "file_filtering_options": {
+                "description": "Optional: Whether to respect ignore patterns from .gitignore or .geminiignore",
+                "type": "object",
+                "properties": {
+                  "respect_git_ignore": {
+                    "description": "Optional: Whether to respect .gitignore patterns when listing files. Only available in git repositories. Defaults to true.",
+                    "type": "boolean"
+                  },
+                  "respect_gemini_ignore": {
+                    "description": "Optional: Whether to respect .geminiignore patterns when listing files. Defaults to true.",
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "read_file",
+          "description": "Reads and returns the content of a specified file. By default reads up to 2000 lines starting from the beginning of the file. Files whose selected range exceeds 256 KB are truncated with an advisory; use 'offset' and 'limit' only if the file is too large to read at once — it's recommended to read the whole file by not providing these parameters. Handles text, images (PNG, JPG, GIF, WEBP, SVG, BMP), and PDF files. For images, videos or other multimedia files, use the 'analyze_multimedia' tool if available.",
+          "parametersJsonSchema": {
+            "properties": {
+              "absolute_path": {
+                "description": "The absolute path to the file to read (e.g., '/home/user/project/file.txt'). Relative paths are not supported. You must provide an absolute path.",
+                "type": "string"
+              },
+              "offset": {
+                "description": "Optional: For text files, the 0-based line number to start reading from. Only provide if the file is too large to read at once.",
+                "type": "number"
+              },
+              "limit": {
+                "description": "Optional: For text files, the maximum number of lines to read. Only provide if the file is too large to read at once.",
+                "type": "number"
+              }
+            },
+            "required": [
+              "absolute_path"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "run_shell_command",
+          "description": "This tool executes a given shell command using the best available Windows shell (PowerShell Core, Windows PowerShell, or Command Prompt).\n\nIMPORTANT:\n- This tool is for terminal operations (e.g., git / npm / docker / build & test commands).\n- DO NOT use this tool for file operations like reading, writing, editing, or searching files. Prefer the dedicated file tools for those actions.\n- Quote any file path that contains spaces with double quotes, e.g. `cd \"/path with spaces\"` or `python \"/path with spaces/script.py\"`.\n- If a command would produce very large output, prefer adding flags/filters (narrow paths, limit counts, request specific fields, machine-readable formats like JSON) to keep output small and unambiguous.\n- Very large outputs may be returned as the most recent tail of the output. Earlier content may be truncated from the beginning. If the tool reports a \"Full output saved to: <path>\", that file contains the full command output. Use the exact path returned by the tool, then prefer searching that file first (grep/rg or platform equivalents) for specific ERROR/WARN/FAIL/SUCCESS markers, then reading small slices (with `read_file` using `offset`/`limit`) or tailing the log file instead of re-running expensive commands.\n- Do not append truncating pipelines such as `| tail`, `| Select-Object -Last`, or similar to an expensive first run just to suppress output. Those discard earlier context and force a re-run if you later need omitted lines. Let the tool/log capture the full output, then inspect the saved log file.\n- When issuing multiple shell commands in one response, parallelize only when they are truly independent and do not compete for the same files, directories, logs, locks, caches, git state, or ports. If one command depends on another or shared state may race, run them sequentially.\n\nThe following information is returned:\n- Command: Executed command.\n- Directory: Directory where command was executed, or `(root)`.\n- Output: Combined command output (stdout/stderr). Can be `(empty)` or an excerpt if very large.\n- Error: Error or `(none)` if no error was reported for the subprocess.\n- Exit Code: Exit code or `(none)` if terminated by signal.\n- Signal: Signal number or `(none)` if no signal was received.",
+          "parametersJsonSchema": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string",
+                "description": "Exact command to execute using the best available Windows shell (automatically selected from PowerShell Core, Windows PowerShell, or Command Prompt). Quote any file paths containing spaces with double quotes."
+              },
+              "description": {
+                "type": "string",
+                "description": "Brief description of the command for the user. Be specific and concise. Ideally a single sentence. Can be up to 3 sentences for clarity. No line breaks."
+              },
+              "directory": {
+                "type": "string",
+                "description": "(OPTIONAL) The absolute path of the directory to run the command in. If not provided, the project root directory is used. Must be a directory within the workspace and must already exist."
+              },
+              "run_in_background": {
+                "type": "boolean",
+                "description": "Set to true to run this command in the background. Returns immediately with task metadata and an output file path."
+              }
+            },
+            "required": [
+              "command"
+            ]
+          }
+        },
+        {
+          "name": "search_file_content",
+          "description": "Searches for a regular expression pattern within the content of files in a specified directory, a specific file, or the current working directory. Can filter files by a glob pattern when searching directories. Returns the lines containing matches, along with their file paths and line numbers.",
+          "parametersJsonSchema": {
+            "properties": {
+              "pattern": {
+                "description": "The regular expression (regex) pattern to search for within file contents (e.g., 'function\\s+myFunction', 'import\\s+\\{.*\\}\\s+from\\s+.*').",
+                "type": "string"
+              },
+              "path": {
+                "description": "Optional: The absolute path to a directory or file to search within. If a file path is provided, searches only within that file. If a directory path is provided, searches all files in that directory. If omitted, searches the current working directory.",
+                "type": "string"
+              },
+              "include": {
+                "description": "Optional: A glob pattern to filter which files are searched (e.g., '*.js', '*.{ts,tsx}', 'src/**'). Only applicable when searching directories, ignored for file searches. If omitted, searches all files (respecting potential global ignores).",
+                "type": "string"
+              },
+              "maxResults": {
+                "description": "Optional: Maximum number of matches to return to prevent context overflow (default: 20, max: 150). Values above 150 are clamped automatically. Use lower values for broad searches, higher for specific searches.",
+                "type": "number",
+                "minimum": 1,
+                "maximum": 150
+              }
+            },
+            "required": [
+              "pattern"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "complete_task",
+          "description": "Call this tool to submit your final result and complete the task. This is the ONLY way to finish.\n\nThis tool must be called ALONE in its turn. Do not call any other tools in the same turn. If you still need another tool, do not call this yet.\n\nYour result MUST be an informative handoff for the caller (main agent), not a one-line summary.\n\nRequirements for result:\n- Use 2+ short paragraphs or a short markdown sectioned report\n- Include what you did / found and the concrete evidence that supports it\n- Include file paths, errors, command outcomes, or other artifacts when relevant\n- Do NOT return only a title or a single-line summary\n- Keep it concise, but detailed enough that the main agent can act without reopening your full trace\n- Choose a status that matches the outcome: use 'success' for fully completed work, 'partial' for meaningful progress with straightforward continuation, 'blocked' for external blockers that you cannot resolve autonomously, and 'failure' for invalid or unrecoverable paths\n\nGood result example:\n## Findings\nI inspected `packages/core/src/foo.ts` and `packages/cli/src/bar.ts`.\nThe bug is caused by `baz()` skipping null checks in the headless path.\n\n## Evidence\n- `packages/core/src/foo.ts:42` calls `baz(input!)`\n- `npm test -- foo` fails with `TypeError: ...`\n\n## Next steps\nUpdate the null guard in `foo.ts` and rerun the focused test.\n\nGood result example (partial completion due to budget):\n## Completed\n- Inspected `packages/core/src/foo.ts` and confirmed the bug location\n- Ran `npm test -- foo` to reproduce the failure\n\n## Findings\n- The root cause is a missing null guard in `baz()` at line 42\n- The fix requires updating both `foo.ts` and the corresponding test file\n\n## Remaining\n- Actual code fix not applied (budget exhausted before edit)\n- Test update for the new null guard path\n\n## Blockers\nBudget exhausted. The fix is straightforward — apply the null guard and rerun tests.\n\nBad result example:\n## Findings\nInvestigated the issue.",
+          "parametersJsonSchema": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "description": "Final status for the caller (e.g. 'success', 'failure', 'partial', 'blocked').",
+                "minLength": 1
+              },
+              "result": {
+                "type": "string",
+                "description": "Provide a substantive handoff of what you did / found. Do not return only a title or single-line summary; include enough evidence and detail for the main agent to act on directly.",
+                "minLength": 24
+              },
+              "next_steps": {
+                "type": "string",
+                "description": "Actionable next steps, or 'none' if there are no follow-ups.",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "status",
+              "result",
+              "next_steps"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "history": [
+    {
+      "type": "user",
+      "text": "This is the Codely CLI. We are setting up the context for our chat.\nToday's date is 2026年5月27日星期三.\nMy operating system is: win32\nI'm currently working in the directory: F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\nHere is the folder structure of the current working directories:\n\nShowing up to 20 items (files + folders). Folders or files indicated with ... contain more items not shown, were ignored, or the display limit (20 items) was reached.\n\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\\n├───.codelyignore\n├───.com-unity-codely.json\n├───Assembly-CSharp.csproj\n├───Chipped Jade, the King Itself.sln\n├───.codely-cli\\\n│   ├───settings.json\n│   └───extensions\\\n├───.vscode\\\n│   ├───extensions.json\n│   ├───launch.json\n│   └───settings.json\n├───Assets\\\n│   ├───Art.meta\n│   ├───Perfabs.meta\n│   ├───...\n│   └───...\n├───Library\\\n├───Logs\\\n├───Packages\\\n├───ProjectSettings\\\n├───Temp\\\n└───UserSettings\\---\n\n--- Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---\n## Codely Added Memories\n- 用户偏好使用中文交流，请始终用中文回复。\n--- End of Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---<core_static_ref hash=\"98349db4a75d87f4712f03733f46f78baf06fd7a8640b702db980df272f0f7a8\" />"
+    },
+    {
+      "type": "gemini",
+      "text": "Got it. Thanks for the context!"
+    },
+    {
+      "type": "user",
+      "text": "Task MUST complete:\nExplore this Unity project to find:\n1. Player-related scripts and prefabs (look in Assets/Scripts, Assets/Perfabs, etc.)\n2. Any sprite/texture assets related to the player character (in Assets/Art or similar)\n3. Any existing quality settings or texture import settings\n4. Check if there are .meta files for sprite textures and read their filterMode settings\n\nFocus on finding:\n- Player movement scripts\n- Player sprite texture .meta files (look for filterMode, textureType settings)\n- Any Pixel Perfect Camera or related setup\n- Quality settings (ProjectSettings/QualitySettings.asset)\n\nThoroughness: medium"
+    }
+  ],
+  "subagentMetadata": {
+    "mainSessionId": "fdf188df-4568-4f6c-bf21-7c150c79eca3",
+    "taskId": "task-4bea7941-cf76-45c1-8e9b-7cf9e87f2c28",
+    "taskOutputJsonlPath": "C:\\Users\\ASUS\\.codely-cli\\tmp\\60e4db00d978f31b924ec9866c66e27a91d57566af1d9a8883048ac062b50456\\tasks\\task-4bea7941-cf76-45c1-8e9b-7cf9e87f2c28.jsonl",
+    "subagentName": "explore",
+    "agentName": "explore",
+    "agentId": "explore-u3qugf",
+    "status": "completed_partial",
+    "resultSummary": "Let me analyze what I've found so far and continue reading the key files to provide a comprehensive summary.\n\nKey findings so far:\n1. Player scripts found at `Assets/Scripts/Player/`\n2. Player prefab at `Assets/Perfabs/Player.prefab`\n3. Player sprites in `Assets/Art/Player/` - multiple sprite sheets for WarriorMan and WarriorWoman\n4. QualitySettings.asset read with 6 quality levels\n5. Many sprite .meta files available\n\nI need to read the player scripts, the player prefab, and some key sprite .meta files (especially the player sprites) to check filterMode settings.\n\nLet me read the player scripts and key .meta files.Now let me read the key player scripts and the player sprite .meta files to check for filterMode and other settings:\n\n<｜｜DSML｜｜tool_calls>\n<｜｜DSML｜｜invoke name=\"read_file\">\n<｜｜DSML｜｜parameter name=\"absolute_path\" string=\"true\">F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Player\\PlayerController.cs</｜｜DSML｜｜parameter>\n</｜｜DSML｜｜invoke>\n<｜｜DSML｜｜invoke name=\"read_file\">\n<｜｜DSML｜｜parameter name=\"absolute_path\" string=\"true\">F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Player\\PlayerStat.cs</｜｜DSML｜｜parameter>\n</｜｜DSML｜｜invoke>\n<｜｜DSML｜｜invoke name=\"read_file\">\n<｜｜DSML｜｜parameter name=\"absolute_path\" string=\"true\">F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Scripts\\Player\\PlayerStateMachine.cs</｜｜DSML｜｜parameter>\n</｜｜DSML｜｜invoke>\n<｜｜DSML｜｜invoke name=\"read_file\">\n<｜｜DSML｜｜parameter name=\"absolute_path\" string=\"true\">F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\WarriorMan-Sheet.png.meta</｜｜DSML｜｜parameter>\n</｜｜DSML｜｜invoke>\n<｜｜DSML｜｜invoke name=\"read_file\">\n<｜｜DSML｜｜parameter name=\"absolute_path\" string=\"true\">F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\Assets\\Art\\Player\\Outline\\WarriorWomanNoEffect-Sheet.png.meta</｜｜DSML｜｜parameter>\n</｜｜DSML｜｜invoke>\n<｜｜DSML｜｜invoke name=\"read_file\">\n<｜｜DSML｜｜parameter name=\"absolute_path\" string=\"true\">F:\\Project-UnityTuanji",
+    "model": "codely-air",
+    "systemPrompt": {
+      "inheritance": "override",
+      "static": {
+        "kind": "override_inline_static",
+        "hash": "98349db4a75d87f4712f03733f46f78baf06fd7a8640b702db980df272f0f7a8",
+        "text": "You are a file search specialist. You excel at thoroughly navigating and exploring codebases.\n\n=== CRITICAL: READ-ONLY MODE - NO FILE MODIFICATIONS ===\nThis is a READ-ONLY exploration task. You are STRICTLY PROHIBITED from:\n- Creating new files (no writing, touch, or file creation of any kind)\n- Modifying existing files (no edit operations)\n- Deleting files (no rm or deletion)\n- Moving or copying files (no mv or cp)\n- Creating temporary files anywhere, including /tmp\n- Using redirect operators (>, >>, |) or heredocs to write to files\n- Running ANY commands that change system state\n\nYour role is EXCLUSIVELY to search and analyze existing code.\n\nYour strengths:\n- Rapidly finding files using glob patterns\n- Searching code and text with powerful regex patterns\n- Reading and analyzing file contents\n\nGuidelines:\n- Use glob for broad file pattern matching\n- Use search_file_content for searching file contents with regex\n- Use read_file when you know the specific file path you need to read\n- Use run_shell_command ONLY for read-only operations (ls, git status, git log, git diff, find, cat, head, tail)\n- NEVER use run_shell_command for: mkdir, touch, rm, cp, mv, git add, git commit, npm install, pip install, or any file creation/modification\n- Adapt your search approach based on the thoroughness level specified by the caller\n- Wherever possible, spawn multiple parallel tool calls for searching and reading files\n\nNOTE: You are meant to be a fast agent that returns output as quickly as possible. In order to achieve this you must:\n- Make efficient use of the tools at your disposal: be smart about how you search for files and implementations\n- Wherever possible you should try to spawn multiple parallel tool calls for grepping and reading files\n- Start broad and narrow down. Use multiple search strategies if the first doesn't yield results.\n- Be thorough: Check multiple locations, consider different naming conventions, look for related files.\n\nComplete the search request efficiently and report your findings clearly.\n\n\n# Environment Context\nI'm currently working in the directory: F:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\nHere is the folder structure of the current working directories:\n\nShowing up to 20 items (files + folders). Folders or files indicated with ... contain more items not shown, were ignored, or the display limit (20 items) was reached.\n\nF:\\Project-UnityTuanjie\\Chipped Jade, the King Itself\\\n├───.codelyignore\n├───.com-unity-codely.json\n├───Assembly-CSharp.csproj\n├───Chipped Jade, the King Itself.sln\n├───.codely-cli\\\n│   ├───settings.json\n│   └───extensions\\\n├───.vscode\\\n│   ├───extensions.json\n│   ├───launch.json\n│   └───settings.json\n├───Assets\\\n│   ├───Art.meta\n│   ├───Perfabs.meta\n│   ├───...\n│   └───...\n├───Library\\\n├───Logs\\\n├───Packages\\\n├───ProjectSettings\\\n├───Temp\\\n└───UserSettings\\\nImportant Rules:\n* You are running in a non-interactive mode. You CANNOT ask the user for input or clarification.\n* Work systematically using available tools to complete your task.\n* Always use absolute paths for file operations. Construct them using the provided \"Environment Context\".\n* When you have completed your task, you MUST call the `complete_task` tool.\n* Do not call any other tools in the same turn as `complete_task`.\n* This is the ONLY way to complete your mission. If you stop calling tools without calling this, you have failed."
+      },
+      "dynamic": {
+        "sections": [
+          {
+            "name": "memory",
+            "text": "---\n\n--- Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---\n## Codely Added Memories\n- 用户偏好使用中文交流，请始终用中文回复。\n--- End of Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---",
+            "hash": "6e2e3f7c69d8bf2c0ec63a6d3885add5087d626a0ca4c928ddbb6cc554f1b2a1"
+          },
+          {
+            "name": "additional_prompts",
+            "text": null,
+            "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ],
+        "joinedText": "---\n\n--- Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---\n## Codely Added Memories\n- 用户偏好使用中文交流，请始终用中文回复。\n--- End of Context from: C:\\Users\\ASUS\\.codely-cli\\CODELY.md ---"
+      }
+    }
+  }
+}
