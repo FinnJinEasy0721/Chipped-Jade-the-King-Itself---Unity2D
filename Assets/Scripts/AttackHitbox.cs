@@ -3,12 +3,7 @@ using System;
 
 /// <summary>
 /// 攻击判定框组件
-/// 挂载在攻击检测子对象上（需有 Collider2D isTrigger + DetectionZone）
-/// 默认禁用游戏对象，启用后只造成一次伤害自动禁用
-///
-/// Tag 规则（挂载在哪个对象上就设哪个Tag）：
-///   玩家攻击框 → Tag: PlayerAttackBox    → 自动检测 EnemyHurtBox
-///   敌人攻击框 → Tag: EnemyAttackBox     → 自动检测 PlayerHurtBox
+/// 挂载在攻击检测子对象上（有 Collider2D isTrigger + DetectionZone）
 /// </summary>
 [RequireComponent(typeof(DetectionZone))]
 public class AttackHitbox : MonoBehaviour
