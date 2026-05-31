@@ -4,12 +4,6 @@ using System;
 
 /// <summary>
 /// PlayerStat.cs
-/// 玩家属性管理脚本（独立于GameData脚本）
-/// 负责读取/存储玩家等级、经验、金币、祝福类型等数据（使用JSON自包含保存）
-/// 计算所有属性（固定属性、等级表、祝福加成/减益、暴击、当前攻击力等）
-/// 提供伤害计算公式、祝福切换、生命值管理等
-/// 所有数据基于提供的“玩家属性.md”和“祝福设计.md”实现
-/// 可独立运行（无需其他管理器脚本）
 /// </summary>
 [RequireComponent(typeof(PlayerController), typeof(PlayerStateMachine))]
 public class PlayerStat : MonoBehaviour
@@ -56,7 +50,7 @@ public class PlayerStat : MonoBehaviour
     public float Base_CritMulti = 1.5f; // 150%
     public float HeavyAttackCD = 2f; // 重击冷却
 
-    // 等级表（直接来自“玩家属性.md”）
+    // 等级表
     private static readonly int[] MaxHPTable = { 0, 100, 120, 150, 200, 250, 300 }; // index 0无效，1~5
     private readonly int[] BaseAP1Table = { 0, 10, 15, 18, 20, 25, 30 };
     private readonly int[] BaseAP2Table = { 0, 12, 18, 25, 30, 35, 40 };
@@ -87,7 +81,7 @@ public class PlayerStat : MonoBehaviour
     }
 
     /// <summary>
-    /// 从JSON加载玩家数据（自包含，无需GameData脚本）
+    /// 从JSON加载玩家数据
     /// 如果文件不存在则创建默认数据
     /// </summary>
     public void LoadData()
@@ -113,8 +107,7 @@ public class PlayerStat : MonoBehaviour
     }
 
     /// <summary>
-    /// 刷新所有当前属性（等级变化、祝福加成）
-    /// 严格遵循“未暴击伤害计算公式”和“暴击伤害计算公式”
+    /// 刷新所有当前属性
     /// </summary>
     public void UpdateStats()
     {
@@ -123,14 +116,14 @@ public class PlayerStat : MonoBehaviour
     }
 
     /// <summary>
-    /// 切换祝福（来自“祝福设计.md”），立即刷新属性加成
+    /// 切换祝福，立即刷新属性加成
     /// </summary>
     public void ChangeBlessing(BlessingType newBlessing)
     {
         currentBlessing = newBlessing;
         UpdateStats();
         Debug.Log($"【祝福切换】当前祝福变为：{newBlessing}（AP/暴击等已刷新）");
-        // 实际项目中可触发事件：Player_ChangeBlessing
+        // 触发事件：Player_ChangeBlessing
     }
 
     /// <summary>
@@ -151,14 +144,13 @@ public class PlayerStat : MonoBehaviour
 
     /// <summary>
     /// 计算最终伤害（包含祝福加成/减益 + 暴击）
-    /// 严格按照公式实现，支持所有祝福的AP/暴击修改
     /// </summary>
     public int GetAttackDamage(int comboStage, out bool isCrit)
     {
         int baseAP = GetBaseAttackPower(comboStage);
         float apMultiplier = 1f;
 
-        // 祝福AP加成/减益（来自祝福设计.md）
+        // 祝福AP加成/减益
         switch (currentBlessing)
         {
             case BlessingType.AP_Blessing:
@@ -229,8 +221,7 @@ public class PlayerStat : MonoBehaviour
 
     /// <summary>
     /// 主动使用祝福技能（L键触发后调用）
-    /// 仅播放动画，技能效果为占位（实际项目可扩展敌人交互）
-    /// 技能效果描述来自“祝福设计.md”，实际项目中可触发事件：Player_UseBlessingSkill，敌人可监听并响应不同祝福的效果
+    /// 仅播放动画，技能效果为占位
     /// 用事件驱动解耦
     /// </summary>
     public void UseBlessingSkill()
@@ -320,7 +311,7 @@ public class PlayerStat : MonoBehaviour
             UpdateStats();
             Curr_HP = MaxHPTable[playerData.Player_Level]; // 升级回满血
             Debug.Log($"【玩家升级】当前等级：{playerData.Player_Level}，最大生命值：{MaxHPTable[playerData.Player_Level]}");
-            // 实际项目中可触发事件：Player_LevelUp
+            // 可触发事件：Player_LevelUp
         }
     }
 
