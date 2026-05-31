@@ -2,8 +2,6 @@ using UnityEngine;
 
 /// <summary>
 /// PlayerController.cs
-/// 【已修复】跳跃后永远卡在Jump状态的问题 + 地面检测已优化
-/// 新增：每帧调用 stateMachine.CustomUpdate()，让状态机正常切换
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
