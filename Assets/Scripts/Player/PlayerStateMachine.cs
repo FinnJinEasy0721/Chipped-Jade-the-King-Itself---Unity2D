@@ -2,8 +2,6 @@ using UnityEngine;
 
 /// <summary>
 /// PlayerStateMachine.cs
-/// 【已修复】连续攻击必须等待当前动画完全播放完毕后才能播放下一段
-/// 新增 comboBuffered 缓冲机制，严格遵循设计文档：第一段结束后才能第二段，依此类推
 /// </summary>
 [RequireComponent(typeof(Animator))]
 public class PlayerStateMachine : MonoBehaviour
