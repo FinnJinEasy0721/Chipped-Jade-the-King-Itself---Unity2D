@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11f8be07451e2244be3a491cc754263, type: 3}
   m_Name: "\u6062\u590D20\u70B9\u751F\u547D\u503C"
   m_EditorClassIdentifier: 
+  BriefDescription: "\u6062\u590D20HP"
+  Category: 1
   HealAmount: 20

@@ -29,5 +29,8 @@ public class EnemyStatBase : MonoBehaviour
     protected virtual void Awake()
     {
         CurHP = MaxHP;
+        // 确保敌人身上有BuffContainer（用于管理DOT/眩晕等持续效果）
+        if (GetComponent<BuffContainer>() == null)
+            gameObject.AddComponent<BuffContainer>();
     }
 }

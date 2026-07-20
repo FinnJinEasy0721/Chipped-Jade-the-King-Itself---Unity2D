@@ -16,3 +16,6 @@
 # OS generated
 .DS_Store
 Thumbs.db
+
+# Codely CLI
+.codely-cli/

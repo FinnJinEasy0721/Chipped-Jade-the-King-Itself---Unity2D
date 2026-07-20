@@ -8,13 +8,13 @@ using System;
 [RequireComponent(typeof(PlayerController), typeof(PlayerStateMachine))]
 public class PlayerStat : MonoBehaviour
 {
-    [System.Serializable]
+    [System.Serializable] // 用于JSON保存
     public class PlayerData
     {
         public int Player_Level = 1; // 等级
         public int Player_Exp = 0; // 经验
         public int Player_Coin = 500; // 初始身上金币
-        public int Merchant_Coin = 0; // 投资商人金币
+        public int Merchant_Coin = 0; // 投资商人金币（银行）
         public int Wandering_Affinity = 0; // 流浪商人好看度
         public int Wandering_Exp = 0; // 流浪商人经验
         public int Merchant_Affinity = 0; // 商人亲密度
@@ -24,20 +24,8 @@ public class PlayerStat : MonoBehaviour
 
     public PlayerData playerData = new PlayerData();
 
-    // 当前祝福类型（枚举）
-    public enum BlessingType
-    {
-        No_Blessing,
-        AP_Blessing,
-        LifeSteal_Blessing,
-        ThreeHit_Blessing,
-        LowHurt_Blessing,
-        SuperHit_Blessing,
-        Invincible_Blessing,
-        Lightning_Blessing,
-        Knockback_Blessing
-    }
-    public BlessingType currentBlessing = BlessingType.No_Blessing;
+    // 无敌标记（由祝福技能设置）
+    private bool _isInvincible = false;
 
     // 当前生命值（变化属性）
     public int Curr_HP = 100;
@@ -90,7 +78,7 @@ public class PlayerStat : MonoBehaviour
         {
             string json = File.ReadAllText(savePath);
             playerData = JsonUtility.FromJson<PlayerData>(json);
-            currentBlessing = (BlessingType)System.Enum.Parse(typeof(BlessingType), playerData.Current_Blessing);
+            // 祝福ID由BlessingManager读取，此处仅加载原始字符串
         }
         else
         {
@@ -101,7 +89,7 @@ public class PlayerStat : MonoBehaviour
 
     public void SaveData()
     {
-        playerData.Current_Blessing = currentBlessing.ToString();
+        // Current_Blessing由BlessingManager写入playerData，此处统一保存JSON
         string json = JsonUtility.ToJson(playerData, true);
         File.WriteAllText(savePath, json);
     }
@@ -113,17 +101,6 @@ public class PlayerStat : MonoBehaviour
     {
         int level = Mathf.Clamp(playerData.Player_Level, 1, 5);
         Curr_HP = Mathf.Clamp(Curr_HP, 0, MaxHPTable[level] + Curr_ExtraHealth);
-    }
-
-    /// <summary>
-    /// 切换祝福，立即刷新属性加成
-    /// </summary>
-    public void ChangeBlessing(BlessingType newBlessing)
-    {
-        currentBlessing = newBlessing;
-        UpdateStats();
-        Debug.Log($"【祝福切换】当前祝福变为：{newBlessing}（AP/暴击等已刷新）");
-        // 触发事件：Player_ChangeBlessing
     }
 
     /// <summary>
@@ -143,61 +120,22 @@ public class PlayerStat : MonoBehaviour
     }
 
     /// <summary>
-    /// 计算最终伤害（包含祝福加成/减益 + 暴击）
+    /// 计算最终伤害（通过BlessingManager的修饰器系统获取加成 + 暴击）
     /// </summary>
     public int GetAttackDamage(int comboStage, out bool isCrit)
     {
         int baseAP = GetBaseAttackPower(comboStage);
-        float apMultiplier = 1f;
 
-        // 祝福AP加成/减益
-        switch (currentBlessing)
-        {
-            case BlessingType.AP_Blessing:
-            case BlessingType.ThreeHit_Blessing:
-            case BlessingType.LowHurt_Blessing:
-            case BlessingType.Invincible_Blessing:
-                apMultiplier += 0.1f;
-                break;
-            case BlessingType.LifeSteal_Blessing:
-                apMultiplier -= 0.1f;
-                break;
-            case BlessingType.SuperHit_Blessing:
-                apMultiplier += 2f; // +200%
-                break;
-            case BlessingType.Lightning_Blessing:
-                apMultiplier += 0.4f;
-                break;
-            case BlessingType.Knockback_Blessing:
-                apMultiplier -= 0.1f;
-                break;
-        }
+        // 从BlessingManager的修饰器系统获取属性加成
+        var bm = GetComponent<BlessingManager>();
+        float apMultiplier = bm?.Modifiers.GetFinalValue(StatType.AttackPower, 1f) ?? 1f;
+        float critRate = bm?.Modifiers.GetFinalValue(StatType.CritRate, Base_CritRate) ?? Base_CritRate;
+        float critMulti = bm?.Modifiers.GetFinalValue(StatType.CritMultiplier, Base_CritMulti) ?? Base_CritMulti;
 
         int currAP = Mathf.RoundToInt(baseAP * apMultiplier);
 
-        // 暴击概率与效果
-        float critRate = Base_CritRate;
-        float critMulti = Base_CritMulti;
-
-        if (currentBlessing == BlessingType.SuperHit_Blessing)
-        {
-            critRate += 0.5f;
-            critMulti += 1f; // +100%
-        }
-        else if (currentBlessing == BlessingType.Lightning_Blessing)
-        {
-            critRate = 0f; // 无法暴击
-        }
-
         isCrit = UnityEngine.Random.value < critRate;
         int finalDamage = isCrit ? Mathf.RoundToInt(currAP * critMulti) : currAP;
-
-        // 生命偷取祝福（伤害敌人时恢复当前生命值10%）
-        if (currentBlessing == BlessingType.LifeSteal_Blessing && finalDamage > 0)
-        {
-            int heal = Mathf.RoundToInt(Curr_HP * 0.1f);
-            Curr_HP = Mathf.Min(Curr_HP + heal, MaxHPTable[playerData.Player_Level] + Curr_ExtraHealth);
-        }
 
         return finalDamage;
     }
@@ -219,37 +157,14 @@ public class PlayerStat : MonoBehaviour
 
     public void StartHeavyCD() => heavyAttackTimer = HeavyAttackCD;
 
-    /// <summary>
-    /// 主动使用祝福技能（L键触发后调用）
-    /// 仅播放动画，技能效果为占位
-    /// 用事件驱动解耦
-    /// </summary>
-    public void UseBlessingSkill()
+    /// <summary>重击冷却剩余时间（秒）</summary>
+    public float GetHeavyAttackCooldownRemaining() => heavyAttackTimer;
+
+    /// <summary>升至下一级所需总经验（满级返回 -1）</summary>
+    public int GetNextLevelExpRequirement()
     {
-        switch (currentBlessing)
-        {
-            case BlessingType.ThreeHit_Blessing:
-                Debug.Log("【三袭三生】技能触发：第三次连击后每秒造成敌人最大生命值5%伤害（持续3秒，冷却60秒）");
-                break;
-            case BlessingType.LowHurt_Blessing:
-                Debug.Log("【禾萎卸攻】技能触发：减少敌人当前攻击力20%（持续5秒，冷却60秒）");
-                break;
-            case BlessingType.SuperHit_Blessing:
-                Debug.Log("【碎玉焚心】技能开启：暴击率+50%、暴击效果+100%（持续30秒，可长按K 2秒关闭）");
-                break;
-            case BlessingType.Invincible_Blessing:
-                Debug.Log("【父佑青御】技能触发：自身无敌1秒（下次第三连击刷新，冷却60秒）");
-                break;
-            case BlessingType.Lightning_Blessing:
-                Debug.Log("【惊世先生】技能触发：对最近三名敌人造成300点电击并眩晕3秒（冷却20秒）");
-                break;
-            case BlessingType.Knockback_Blessing:
-                Debug.Log("【却敌安邦】技能触发：击退范围内所有敌人并眩晕2秒（冷却20秒）");
-                break;
-            default:
-                Debug.Log("当前祝福无主动技能（或为被动祝福）");
-                break;
-        }
+        if (playerData.Player_Level >= 5) return -1;
+        return LevelExpRequirements[playerData.Player_Level + 1];
     }
 
     /// <summary>
@@ -262,11 +177,28 @@ public class PlayerStat : MonoBehaviour
     }
 
     /// <summary>
+    /// 治疗玩家（回血），上限为最大生命值
+    /// </summary>
+    public void Heal(int amount)
+    {
+        if (amount <= 0) return;
+        Curr_HP = Mathf.Min(Curr_HP + amount, GetMaxHP());
+    }
+
+    /// <summary>
+    /// 设置无敌状态（由祝福技能调用）
+    /// </summary>
+    public void SetInvincible(bool value) => _isInvincible = value;
+
+    /// <summary>
     /// 玩家受到伤害（外部敌人调用）
     /// 纯粹的数据层，只关心数值变化，不处理状态转换（由PlayerStateMachine负责）
     /// </summary>
     public void TakeDamage(int damage)
     {
+        // 无敌状态不受伤
+        if (_isInvincible) return;
+
         // 优先扣除额外生命
         if (Curr_ExtraHealth > 0 && damage > 0)
         {
@@ -286,7 +218,6 @@ public class PlayerStat : MonoBehaviour
         {
             Curr_HP = Mathf.Max(0, Curr_HP - damage);
         }
-        //Debug.Log($"玩家受到伤害，当前HP：{Curr_HP}，额外生命：{Curr_ExtraHealth}");
     }
 
     /// <summary>

@@ -32,11 +32,26 @@ public class PlayerController : MonoBehaviour
     private bool jumpInput, attackInput, heavyInputDown, heavyInputUp;
     private bool blessingInput, slideInput, bagInput;
 
+    // 对话状态锁定
+    private bool inDialogue = false;
+    // 对话刚结束的那一帧仍锁定输入，防止关闭对话的空格触发跳跃
+    private bool _dialogueJustEnded = false;
+    // 商店状态锁定
+    private bool inShop = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         stateMachine = GetComponent<PlayerStateMachine>();
         stat = GetComponent<PlayerStat>();
+        // 禁用系统输入法，防止按键被 IME 拦截
+        Input.imeCompositionMode = IMECompositionMode.Off;
+    }
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus)
+            Input.imeCompositionMode = IMECompositionMode.Off;
     }
 
     private void Start()
@@ -45,28 +60,64 @@ public class PlayerController : MonoBehaviour
         stateMachine.Initialize(this, stat);
     }
 
+    private void OnEnable()
+    {
+        EventCenter.Instance.AddListener(EventName.DialogueStart, OnDialogueStart);
+        EventCenter.Instance.AddListener(EventName.DialogueEnd, OnDialogueEnd);
+        EventCenter.Instance.AddListener(EventName.ShopOpen, OnShopOpen);
+        EventCenter.Instance.AddListener(EventName.ShopClose, OnShopClose);
+    }
+
+    private void OnDisable()
+    {
+        EventCenter.Instance.RemoveListener(EventName.DialogueStart, OnDialogueStart);
+        EventCenter.Instance.RemoveListener(EventName.DialogueEnd, OnDialogueEnd);
+        EventCenter.Instance.RemoveListener(EventName.ShopOpen, OnShopOpen);
+        EventCenter.Instance.RemoveListener(EventName.ShopClose, OnShopClose);
+    }
+
+    private void OnDialogueStart() => inDialogue = true;
+    private void OnDialogueEnd()
+    {
+        inDialogue = false;
+        _dialogueJustEnded = true;
+    }
+    private void OnShopOpen() => inShop = true;
+    private void OnShopClose() => inShop = false;
+
     private void Update()
     {
         // === 地面检测 ===
         isGrounded = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, groundLayer);
 
-        // === 输入读取 ===
-        horizontalInput = Input.GetAxisRaw("Horizontal");
+        // === 对话/商店期间锁定输入 ===
+        if (inDialogue || inShop || _dialogueJustEnded)
+        {
+            horizontalInput = 0f;
+            jumpInput = attackInput = heavyInputDown = heavyInputUp = false;
+            blessingInput = slideInput = bagInput = false;
+            _dialogueJustEnded = false;
+        }
+        else
+        {
+            // === 输入读取 ===
+            horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) jumpInput = true;
-        if (Input.GetKeyDown(KeyCode.J)) attackInput = true;
-        if (Input.GetKeyDown(KeyCode.K)) heavyInputDown = true;
-        if (Input.GetKeyUp(KeyCode.K)) heavyInputUp = true;
-        if (Input.GetKeyDown(KeyCode.L)) blessingInput = true;
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) jumpInput = true;
+            if (Input.GetKeyDown(KeyCode.J)) attackInput = true;
+            if (Input.GetKeyDown(KeyCode.K)) heavyInputDown = true;
+            if (Input.GetKeyUp(KeyCode.K)) heavyInputUp = true;
+            if (Input.GetKeyDown(KeyCode.L)) blessingInput = true;
 
-        // 滑行
-        if ((Input.GetKey(KeyCode.S) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))) ||
-            (Input.GetKeyDown(KeyCode.S) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))))
-            slideInput = true;
+            // 滑行
+            if ((Input.GetKey(KeyCode.S) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))) ||
+                (Input.GetKeyDown(KeyCode.S) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))))
+                slideInput = true;
 
-        if (Input.GetKeyDown(KeyCode.Tab)) bagInput = true;
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Debug.Log("【游戏暂停】ESC");
+            if (Input.GetKeyDown(KeyCode.Tab)) bagInput = true;
+            if (Input.GetKeyDown(KeyCode.Escape))
+                Debug.Log("【游戏暂停】ESC");
+        }
 
         // 翻转
         if (canFlip) {

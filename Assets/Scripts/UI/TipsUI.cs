@@ -11,7 +11,6 @@ public class TipsUI : MonoBehaviour
     private GameObject _generalPanel;    // 通用提示面板
     private TMP_Text _titleText;         // 提示标题
     private TMP_Text _contentText1;       // 提示内容1（道具描述）
-    private TMP_Text _contentText2;       // 提示内容2（操作按键指引）
 
     private GameObject _completePanel;    // 通关提示面板
 
@@ -21,7 +20,6 @@ public class TipsUI : MonoBehaviour
         _generalPanel = transform.Find("通用提示面板").gameObject;
         _titleText = _generalPanel.transform.Find("提示标题").GetComponent<TMP_Text>();
         _contentText1 = _generalPanel.transform.Find("提示内容1").GetComponent<TMP_Text>();
-        _contentText2 = _generalPanel.transform.Find("提示内容2").GetComponent<TMP_Text>();
 
         _completePanel = transform.Find("通关提示面板").gameObject;
 
@@ -48,8 +46,7 @@ public class TipsUI : MonoBehaviour
     private void OnShowTips(ItemData itemData)
     {
         _titleText.text = itemData.ItemName;
-        _contentText1.text = itemData.ItemDescription;
-        _contentText2.text = "按F放入背包，E直接使用";
+        _contentText1.text = itemData.ItemDescription + "\n按F放入背包，E直接使用";
         _generalPanel.SetActive(true);
     }
 

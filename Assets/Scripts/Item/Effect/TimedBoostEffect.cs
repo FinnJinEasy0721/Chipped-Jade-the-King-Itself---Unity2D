@@ -41,6 +41,9 @@ public class TimedBoostEffect : ItemEffect
         // 在目标上挂载协程载体组件，用于驱动倒计时协程
         var runner = target.AddComponent<TimedBoostRunner>();
         runner.StartCoroutine(BoostCoroutine(target, runner));
+
+        // 注册到 BuffTracker 显示在 UI 上
+        RegisterBuff(target, Duration);
     }
 
     /// <summary>
@@ -61,6 +64,8 @@ public class TimedBoostEffect : ItemEffect
                 Debug.Log($"[TimedBoostEffect] 增伤增益结束");
                 break;
         }
+
+        UnregisterBuff(target);
     }
 
     /// <summary>

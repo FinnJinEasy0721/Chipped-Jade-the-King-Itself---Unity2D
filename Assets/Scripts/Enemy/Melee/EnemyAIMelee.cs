@@ -485,6 +485,9 @@ public class EnemyAIMelee : MonoBehaviour
         int damage = isCrit ? Mathf.RoundToInt(_stat.AttackPower * 1.5f) : _stat.AttackPower;
         Debug.Log($"【敌人攻击玩家】造成 {damage} 伤害{(isCrit ? " 暴击！" : "")}");
         playerSM.TakeHurt(damage);
+
+        // 触发战斗事件供祝福系统响应（反伤等）
+        CombatEventBridge.OnEnemyAttackHit(gameObject, playerSM.gameObject, damage, isCrit);
     }
 
     /// <summary>
@@ -503,6 +506,9 @@ public class EnemyAIMelee : MonoBehaviour
         if (_stat.CurHP <= 0)
         {
             _stat.CurHP = 0;
+            // 触发敌人死亡事件供祝福系统响应（击杀回血等）
+            var player = GameObject.FindGameObjectWithTag("Player");
+            CombatEventBridge.OnEnemyDie(player, gameObject);
             SwitchToDie();
             return;
         }

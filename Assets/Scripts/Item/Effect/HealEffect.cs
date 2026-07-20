@@ -17,6 +17,9 @@ public class HealEffect : ItemEffect
         // 回血但不超过 HP 上限
         stat.Curr_HP = Mathf.Min(stat.Curr_HP + HealAmount, stat.GetMaxHP());
         Debug.Log($"[HealEffect] 恢复 {HealAmount} HP，当前 HP: {stat.Curr_HP}/{stat.GetMaxHP()}");
+
+        // 即时效果：在 UI 上短暂闪现 2 秒，显示"已使用"而非读秒
+        RegisterBuff(target, 2f, true);
     }
 
     public override void Remove(GameObject target)

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class CameraController : MonoBehaviour
 {
@@ -57,6 +58,17 @@ public class CameraController : MonoBehaviour
     // 玩家引用
     private PlayerController playerController;
     private PlayerStateMachine stateMachine;
+
+    // 像素完美：每像素世界单位大小
+    private PixelPerfectCamera pixelPerfectCam;
+    private float pixelSize = 1f / 160f;
+
+    private void Start()
+    {
+        pixelPerfectCam = GetComponent<PixelPerfectCamera>();
+        if (pixelPerfectCam != null)
+            pixelSize = 1f / pixelPerfectCam.assetsPPU;
+    }
 
     private void LateUpdate()
     {
@@ -158,6 +170,11 @@ public class CameraController : MonoBehaviour
         }
 
         Vector3 finalPos = new Vector3(smoothX, smoothY, offset.z) + shakeOffset;
+
+        // 像素完美：将最终位置对齐到像素边界，消除子像素移动导致的糊/抖
+        finalPos.x = Mathf.Round(finalPos.x / pixelSize) * pixelSize;
+        finalPos.y = Mathf.Round(finalPos.y / pixelSize) * pixelSize;
+
         transform.position = finalPos;
     }
 

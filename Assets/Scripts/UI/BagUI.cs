@@ -53,8 +53,8 @@ public class BagUI : MonoBehaviour
 
     private void Update()
     {
-        // Tab 或 B 键切换背包面板的开关
-        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.B))
+        // Tab 键切换背包面板的开关
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (_panel.activeSelf)
                 EventCenter.Instance.Invoke(EventName.CloseBag);

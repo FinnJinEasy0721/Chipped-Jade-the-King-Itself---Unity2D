@@ -1,10 +1,10 @@
 {
-  "unity_port": 11582,
-  "stream_port": 4237,
+  "unity_port": -1,
+  "stream_port": 2519,
   "created_date": "2026-05-27T09:53:59.3475105Z",
   "project_path": "F:/Project-UnityTuanjie/Chipped Jade, the King Itself/Assets",
   "reloading": false,
-  "reason": "ready",
-  "seq": 1,
-  "last_heartbeat": "2026-05-31T13:09:45.6094442Z"
+  "reason": "unity_quit",
+  "seq": 3812,
+  "last_heartbeat": "2026-07-18T13:02:54.212Z"
 }

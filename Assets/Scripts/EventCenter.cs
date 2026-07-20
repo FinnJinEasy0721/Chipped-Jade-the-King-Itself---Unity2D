@@ -110,6 +110,13 @@ public enum EventName
     HideTips,
     ShowNextLevel,
     ShowGameOver,
+    BlessingChanged,   // 祝福切换
+    SkillActivated,    // 技能激活
+    SkillDeactivated,  // 技能停用
+    DialogueStart,     // 对话开始（锁定玩家输入）
+    DialogueEnd,       // 对话结束（解锁玩家输入）
+    ShopOpen,          // 商店打开（锁定玩家输入）
+    ShopClose,         // 商店关闭（解锁玩家输入）
 }
 
 // 用法示例

@@ -19,6 +19,7 @@ public class PlayerStateMachine : MonoBehaviour
     private Animator animator;
     private PlayerController controller;
     private PlayerStat stat;
+    private BlessingManager _blessingManager;
 
     // 状态计时器
     private float stateTimer = 0f;
@@ -66,6 +67,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         controller = ctrl;
         stat = st;
+        _blessingManager = GetComponent<BlessingManager>();
         ChangeState(PlayerState.Idle);
         stat.Curr_HP = stat.GetMaxHP();
         comboBuffered = false;
@@ -238,7 +240,8 @@ public class PlayerStateMachine : MonoBehaviour
             case PlayerState.UseBlessing:
                 if (info.normalizedTime >= 1f)
                 {
-                    stat.UseBlessingSkill();
+                    // 动画播放完毕后激活技能效果
+                    _blessingManager?.SkillController?.OnSkillAnimationComplete();
                     ChangeState(PlayerState.Idle);
                 }
                 break;
@@ -489,6 +492,9 @@ public class PlayerStateMachine : MonoBehaviour
             currentState == PlayerState.Hurt || currentState == PlayerState.Getup ||
             currentState == PlayerState.UseBlessing) return;
 
+        // 委托给技能控制器判断是否可激活（检查CD/血耗/Toggle关闭等）
+        if (_blessingManager?.SkillController?.TryActivate() != true) return;
+
         ChangeState(PlayerState.UseBlessing);
     }
 
@@ -524,6 +530,9 @@ public class PlayerStateMachine : MonoBehaviour
         int damage = stat.GetAttackDamage(comboStage, out isCrit);
         Debug.Log($"【玩家攻击敌人】造成 {damage} 伤害{(isCrit ? " 暴击！" : "")}");
         enemyAI.TakeDamage(damage);
+
+        // 触发战斗事件供祝福系统响应（回血/DOT/反伤等）
+        CombatEventBridge.OnPlayerAttackHit(gameObject, enemyAI.gameObject, damage, isCrit, comboStage);
     }
 
     // ====================== 公开接口 ======================

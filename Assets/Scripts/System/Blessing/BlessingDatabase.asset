@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd399492570ee264b90106ab16aaaaa3, type: 3}
+  m_Name: BlessingDatabase
+  m_EditorClassIdentifier: 
+  blessings:
+  - blessingID: 0
+    blessingName: "\u7A7A\u8749\u4E4B\u58F3"
+    description: "\u65E0\u795D\u798F"
+    icon: {fileID: 1111035262, guid: c799511e9fb46654aa9c23d663c7c3bc, type: 3}
+    cost: 0
+    passiveEffects:
+    - effectType: 0
+      triggerType: 0
+      statType: 0
+      modifierOp: 0
+      modifierValue: 0
+      damageScaleType: 0
+      damageScale: 0
+      duration: 0
+      tickInterval: 0
+      areaShape: 0
+      areaRadius: 0
+      areaWidth: 0
+      areaHeight: 0
+      centerOnPlayer: 0
+      maxTargets: 0
+      lifestealRatio: 0
+      lifestealMaxHPRatio: 0
+    skillConfig:
+      skillType: 0
+      skillIcon: {fileID: 0}
+      durationType: 0
+      duration: 0
+      cooldown: 0
+      healthCostType: 0
+      healthCostValue: 0
+      damageScaleType: 0
+      damageScale: 0
+      areaShape: 0
+      areaRadius: 0
+      areaWidth: 0
+      areaHeight: 0
+      centerOnPlayer: 0
+      maxTargets: 0
+      stunDuration: 0
+      knockbackForce: 0
+      boostStat: 0
+      boostOp: 0
+      boostValue: 0
